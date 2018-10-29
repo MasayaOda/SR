@@ -1,0 +1,438 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%      研修A用サンプルファイル     %
+%            LATEX2e用             %
+%      2001年4月8日 by 三浦        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4j,twocolumn]{jarticle}
+\usepackage{latexsym}
+%\linespread{2.0}  %推敲用一行開け
+\usepackage[dvipdfmx]{graphicx,color}
+\usepackage{amsmath,amssymb}
+\usepackage{cases}
+\usepackage{ascmac}
+\usepackage{fancybox}
+\usepackage{amsthm}
+\usepackage{comment}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{amssymb}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+%\usepackage{multicol}
+%\linespread{2.0}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%        原稿サイズ等指定          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\topmargin=-2cm
+\leftmargin=0true cm
+\oddsidemargin=-1cm 
+\evensidemargin=-1cm
+\textwidth=17.5cm
+\textheight=26cm
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%        自前の命令等設定          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheorem{jfac}{事実}
+\newtheorem{jprop}{主張}
+\newtheorem{jthe}{定理}
+\newtheorem{jexa}{例}
+\newtheorem{jcor}{系}
+\newtheorem{direc}{方針}
+\newcommand{\jpro}{\noindent {\bf 証明}\ \ }
+\newtheorem{defi}{定義}
+\newtheorem{lemm}{補題}
+\newcommand{\bhline}[1]{\noalign{\hrule height #1}}
+\newcommand{\cut}[1]{{\rm cut\_from\_hit}(#1)}
+\renewcommand{\proofname}{証明}
+
+ \makeatletter
+    \renewcommand{\thefigure}{%
+    \arabic{figure}}
+  \makeatother
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%            タイトル              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\twocolumn[
+2018年7月12日~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~研修A発表用資料\\
+\begin{center}
+\begin{huge}
+ Efficient algorithms for sorting $k$-sets in bins
+\end{huge}
+\end{center}
+\begin{center}
+\begin{large}
+$k$集合整列問題に対する効率の良いアルゴリズム
+\end{large}
+\end{center}
+\begin{center}
+\begin{large}
+Atsuki Nagao, Kazuhisa Seto and Junichi Teruyama
+\end{large}
+\end{center}
+
+\begin{center}
+IEICE TRANSACTIONS on Information and Systems, E98-D, 10, pp.1736--1743, 2015.
+\end{center}
+
+\begin{center}
+\begin{large}
+  {\bf 発表者：周・伊藤研究室　学部4年　小田将也}
+\end{large}
+\end{center}
+
+]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%              本文                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{はじめに}
+ソート問題は理論計算機科学の基礎的な問題であり，様々なソート問題が研究されてきた\cite{EW09,EEKSW01,KKCBH75}．
+最も基本的なソート問題として，スワップソートが知られている．スワップソートは，降順に並んだ整数のリストが与えられ，その隣り合った要素のみの交換ができるという条件のもと，リストの整数を昇順に並べ替えるという問題であり，これには$\binom{n}{2}$
+回の交換が必要十分であることが知られている．本論文では，スワップソートの自然な拡張である，\emph{$k$集合整列問題}を扱う．これは，2004年にPeter Winklerが提唱した\emph{組整列問題}をさらに拡張した問題であり，$k=2$のときに組整列問題と等価となる．$k$集合整列問題は，以下のように定義される\cite{ITY12,Winkler04}．
+\noindent
+\fbox{
+	\begin{tabular}{l}
+		\textbf{問題： $k$集合整列問題}\\
+		横一列に並んだ$n$個のバケツに1から$n$の番号が\\振られている．バケツにはそれぞれ$k$個のボール\\
+		が入っており，$i$番のバケツのボールすべてに番号\\
+		$n-i+1$がついている．
+		隣り合うバケツ
+		に存在す\\る任意の2つのボールの交換
+		のみを許した時,すべ\\てのボールとバケツの番号を
+		一致させるためには\\何回の交換が必要か.
+	\end{tabular}
+}
+
+
+
+Winklerは，$k$集合整列問題の$k=2$の場合である組整列問題を提唱した際に，
+\begin{eqnarray*}
+	\left \lceil \frac{\binom{2n}{2}}{3} \right \rceil=\left \lceil \frac{n(2n-1)}{3}\right \rceil
+\end{eqnarray*}
+という下界を示し，それが最適であるという推察を与えた．この推察に対して，様々な結果が与えられた．例えば，自明な手法としてバブルソートを2回用いることで$n^2-n$回の交換があれば十分であることがわかる．Westは，$(4/5)n^2$回のアルゴリズムを提案した\cite{W18}．
+伊藤，照山，吉田らとP\"uttmannは独立して，$(2/3)n^2-O(n)$回の交換をするアルゴリズムを提案した．このアルゴリズムで得られる交換回数は，$n=2^m+1$の時にWinklerの示した下界と一致しており，その点でWinklerの問いに肯定的な結果を与えたと言える\cite{ITY12,P18}．
+
+
+また，伊藤，照山，吉田らは任意の$k$について,次のような主張を与えた．
+\begin{jprop}\label{p1}{\rm \cite{ITY12}} $k$集合整列問題を解くためには，$n$が偶数ならば
+	\begin{eqnarray*}
+		\left \lceil \binom{kn}{2}\bigg/(2k-1) \right \rceil
+	\end{eqnarray*}
+	回，$n$が奇数ならば
+	\begin{eqnarray*}
+		\left \lceil \left( \binom{kn}{2}-\binom{k-1}{2} \right)\bigg/(2k-1) \right \rceil
+	\end{eqnarray*}
+	回の交換が必要である．
+\end{jprop}
+この主張はのちに\cite{NST14}によって正当性が証明された．\\
+
+
+主張１より，$k=3$の場合に対して約$(9/10)n^2$という下界が得られるが，それに近い回数で交換する方法についてはこれまで知られていなかった．例えば，バブルソートを3回用いることで$(3/2)n^2(=1.5000n^2)$回の交換があれば十分であることがわかる．
+さらに，バブルソートを用いて各バケツの3個中1個のボールをそろえた後で，残った2個のボールに対して\cite{ITY12}のアルゴリズムを適用することによって，交換の回数は$(7/6)n^2(=1.1667n^2)$回まで減らせる．
+しかしながら，$k=3$の下界は$(9/10)n^2(=0.9000)$回であり，その下界と上界の差には大きなギャップがあった．
+
+
+本論文では，3集合整列問題に対する2つのアルゴリズムを提案する．その内の1つは$k$集合整列問題にも適用することができる．以降は，それぞれのアルゴリズムを$Greedy(n,k)$，$Recursive(n)$と表記する．
+最大の交換回数は，それぞれ$Greedy(n,3)$では$(24/25)n^2+O(n)(=0.9600n^2+O(n))$回，
+$Recursive(n)$では$(15/16)n^2+O(n)(=0.9375n^2+O(n))$回となっており，
+自明な解法に比べて，\cite{ITY12}で示された下界に近づいている．
+$k$集合整列問題については，$Greedy(n,k)$が$k\geq4$に対して$((k+1)/4)n^2+O(k+n)$回の交換回数を達成している．
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       基本的な準備・定義        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{準備}
+ボールの区別，比較を可能にするため，同じ数字を持つボールに，$1からk$のインデックスをつけ，インデックスが$i$の$x$番のボールを，$x_i$と表記することにする．
+
+
+ボールとバケツの状態を，図\ref{shoki}のように表す．下の行の数字がバケツの数字であり，それ以外の数字がボールの数字である．
+バケツの初期状態では，$i$番のバケツの中には，$n+1-i$番のボールが$k$個入っている(図\ref{shoki})．
+そして目標状態は$i$番のバケツに$i$番のボールが$k$個入っている状態である(図\ref{mokuhyo})．
+%%%%%%%%%%%%%%%%%%%画像
+\begin{figure}[tb] 
+	\begin{center}
+		\includegraphics[width=60mm,clip]{fig1.png}
+		\caption{$k=3のn個$のバケツに対する初期状態．}
+		\label{shoki}
+	\end{center}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%画像
+\begin{figure}[tb]
+	\begin{center}
+		\includegraphics[width=60mm,clip]{fig2.png}
+		\caption{$k=3のn個$のバケツに対する目標状態．}
+		\label{mokuhyo}
+	\end{center}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%
+
+全てのボールの大小関係を，次のように定義する．
+\begin{itemize}
+	\item  $x<y$ ならば $x_i<y_j$
+	\item  $x=y$かつ$i<j$ならば $x_i<y_j$
+\end{itemize}
+
+
+$x_i$を$v$番のバケツから$v<u$である$u$番のバケツに移動させる場合，表での右隣のバケツ(自分のバケツの数字より1大きい数字のバケツ)の一番小さいボールとの交換を$x_i$が$u$番のバケツにたどり着くまで繰り返すことにする．この操作を$x_i$を$u$番に{\bfseries move}すると呼ぶ．moveの詳細から，以下の事実\ref{f1}が得られる．
+\begin{jfac}\label{f1}
+	$v<u$に対し，$x_i$が$u$番のバケツ，$y_i$が$v$番のバケツにあるとする．もし，$y$を$w\geq$$u$である$w$へ
+	{\rm move}することで$x_i$が$u-1$に動いた時かつその時に限り，$x_i$が$u$番のバケツの中で一番小さいボールである．
+\end{jfac}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     本論                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\section{貪欲アルゴリズム}
+この節では，以下の定理\ref{greedy(n,k)}と定理\ref{greedy(n,3)}を証明する．
+
+\begin{jthe}\label{greedy(n,k)}\upshape 
+	$k$集合整列問題を高々$((k+1)/4)n^2+O(k+n)$回の交換で解くことができる貪欲アルゴリズム，$Greedy(n,k)$が存在する．
+\end{jthe}
+
+\begin{jthe}\label{greedy(n,3)}\upshape 
+	3集合整列問題を高々$(24/25)n^2+O(n)$回の交換で解くことができる貪欲アルゴリズム，$Greedy(n,3)$が存在する．
+\end{jthe}
+\subsection{Greedy($n$,$k$)アルゴリズム}
+任意の$nとk$における$k$集合整列問題を解くアルゴリズムは，表\ref{donyoku}で与えられる．
+正当性を示すため，以下の補題\ref{Gsolve}を証明した．
+\begin{table}[hb]
+	\caption{貪欲アルゴリズム}
+	\begin{tabular}{l}
+		\bhline{1.3pt}
+		{\bf アルゴリズム 1}：$Greedy(n,k)$, $n, k$:\textbf{整数}  \\ \hline
+		\, 1: \textbf{for} $x=n$ to 2 \\
+		\, 2: ~~\textbf{for} $i=k$ to 1 \\
+		\, 3: ~~~~$x_i$を$x$番のバケツにmove　　　　　　　　\\
+		\, 4: ~~\textbf{end for} \\
+		\, 5: \textbf{end for} \\ \hline
+	\end{tabular} 
+	\label{donyoku}
+\end{table}
+\begin{lemm}\label{Gsolve}\upshape
+	貪欲アルゴリズムは$k$集合整列問題を解く．
+\end{lemm}
+
+\begin{proof}
+	ボール$n_i$を考える$(i\in[k])$．まず，$x=n$での$Greedy(n,k)$の1行目のループが終了したとき，すべての$n_i$が
+	$n$番のバケツにあることは明らかである．もし，ボール$n_j(j\in[k])$が$n$番のバケツを離れるとすれば，事実\ref{f1}より，
+	それは$n$番のバケツの一番小さいボールということになる．この状況は，$n$番のバケツに$k$個のボール$n_i$が入っていて，
+	$j=1$のときにのみ起こる．これは，$x=n$の1行目のループが終了していることを意味する．したがって，$x=n$の1行目のループが終了したとき，$n$番のバケツには全ての$n_i$が入っており，他のボールは他のバケツにあるということを意味する．
+	次に，$x=n-1$のときの1行目のループについて考える．$n$に$n-1$を代入し，このアルゴリズムが$(n-1)$番のバケツと$n$番のバケツのボールを入れ替えないことを考えると，同じ結果を得ることができる．この議論を繰り返すことで，$Greedy(n,k)$
+	が正しく$k$集合整列問題を解くという結論が得られる．
+\end{proof}
+\subsection{交換回数}
+この節では，$Greedy(n,k)$の交換回数を解析し，以下の補題\ref{Gnnum}を証明した．
+\begin{lemm}\label{Gnnum}
+	$Greedy(n,k)$は高々$((k+1)/4)n^2+O(k+n)$回の交換で$k$集合整列問題解くことができる．
+\end{lemm}
+補題\ref{Gnnum}を証明するために，補題\ref{xmin}を証明した．
+\begin{lemm}\label{xmin}
+	$1\leq x\leq n$である任意の$x$と$2\leq i\leq k$である$i$に対して，もしボール$x_i$が自身の最初の$(n-x+1)$番のバケツから左に動くとき，$x_i$は$(n-x+1)からn$までのバケツの中で一番小さいボールである．
+\end{lemm}	
+ここでは補題\ref{xmin}の証明は省略する．\\
+
+まず，$[\lceil n/2 \rceil+1,n]$番のボールを目標のバケツまで移動させる交換回数を数える．
+補題\ref{xmin}より，$\lceil n/2 \rceil+1 \leq x \leq n$と$2 \leq i \leq k$について，
+$x_i$は$x$番のバケツに動かすまで左に動くことはない．つまり，$x_i$は$(n-x+1)$番のバケツにある．
+$x_i$のmoveの交換回数は，$2x-n-1$回である．加えて，$x_1$のmoveの交換回数は単純に考えて高々$x-1$回
+である．
+
+
+したがって，$x_i(x \in \{\lceil n/2 \rceil+1,...,n\},i \in [k])$をそれぞれの目標のバケツに動かすためには，
+\begin{eqnarray}\label{e1}
+\begin{split}
+	\sum_{x=\lceil n/2 \rceil+1}^{n} \{x-1+(k-1)\cdot(2x-n-1)\}\\
+	=\begin{cases}
+	\frac{2k+1}{8}n^2-\frac{1}{4}n & n:偶数 \\
+	\frac{2k+1}{8}n^2-\frac{1}{2}n-\frac{2k-3}{8} & n:奇数
+	\end{cases}
+\end{split}
+\end{eqnarray}
+
+回の交換が必要となる．
+
+
+次に，残りのボールを動かすための交換回数を数える．この解析のために，以下の補題\ref{xmin2},
+補題\ref{xdm}を示した．
+
+\begin{lemm}\label{xmin2}
+	$1\leq x\leq \lceil n/2 \rceil$である任意の$x$と$i\in\{2,...,k\}$である$i$に対して，もしボール$x_i$が一度でも$l<n-x+1$である$l$番のバケツから左に動くとすると，すべての$u>l$であるすべての$u$番のバケツのすべてのボールは$x_i$よりも大きい．
+\end{lemm}	
+\begin{lemm}\label{xdm}
+	$1\leq x\leq \lceil n/2 \rceil$である$x$と$i\in\{2,...,k\}$である$i$に対して，ボール$x_i$は$x$番のバケツから左へは動かない．
+\end{lemm}
+
+紙面の都合上ここでは補題\ref{xmin2},補題\ref{xdm}の証明は省略する．\\
+
+補題\ref{Gsolve}及び補題\ref{xdm}から，$y \leq \lceil n/2 \rceil$である$k-1$個のボール$y_i(i\in \{2,...,k\})$について，1行目の$x=y$までのループの繰り返しの後は$y$番のバケツにあることがわかる．
+したがって，$x=y$のループは$y_1$を目標のバケツにmoveするだけで終了する．この回数は単純に考えて高々$y-1$回なので，
+1行目の$y=\lceil n/2 \rceil$から$2$までのループの交換回数は，高々式(\ref{e2})となる.
+\begin{eqnarray}\label{e2}
+\begin{split}
+	\sum_{y=2}^{\lceil n/2 \rceil} (y-1)
+	=\begin{cases}
+	\frac{1}{8}n^2-\frac{1}{4}n & n:偶数 \\
+	\frac{1}{8}n^2-\frac{1}{8}  & n:奇数
+	\end{cases}
+\end{split}
+\end{eqnarray}
+
+
+式(\ref{e1})及び式(\ref{e2})から，$Greedy(n,k)$の交換回数は，合計で高々式(\ref{etotal})のようになる．
+\begin{eqnarray}\label{etotal}
+	\begin{split}
+		\begin{cases}
+			\frac{k+1}{4}n^2-\frac{1}{2}n & n:偶数 \\
+			\frac{k+1}{4}n^2-\frac{1}{2}n-\frac{k-1}{4} & n:奇数
+		\end{cases}
+	\end{split}
+\end{eqnarray}
+
+定理\ref{greedy(n,k)}は，補題\ref{Gsolve}及び補題\ref{Gnnum}から直接導かれる．
+\subsection{$k=3$のより詳細な解析}
+この節では，$Greedy(n,3)$での交換回数のより詳細な解析を行った．
+補題\ref{Gnnum}の証明では，$x \in [n]$に対して，$x_1$のmoveに必要な交換回数を単純に高々$x-1$回と見積もった．
+しかしながら，インデックスが1のいくつかのボールについては，1番のバケツには絶対にたどり着かないものもある．
+
+
+そこで，インデックスが1であるボールのたどり着く一番左のバケツに関連する補題\ref{c3}を示した．
+
+\begin{lemm}\label{c3}
+	任意の$c$に対して，$x=n-4c$かつ$x-1>c+1$を満たすとき，$Greedy(n,3)$の適用によって，
+	ボール$x_1及び(x-1)_1$は，$(c+1)$番のバケツより左には動かない．
+\end{lemm}
+
+紙面の都合上ここでは補題\ref{c3}の証明は省略する．\\
+
+補題\ref{c3}によって，$Greedy(n,3)$の交換回数に関連する補題\ref{G3num}を証明した．ここでは詳細は省略する．
+
+\begin{lemm}\label{G3num}
+	$Greedy(n,3)$の交換回数は高々$(24/25)n^2+O(n)$回である．
+\end{lemm}
+定理\ref{greedy(n,3)}は，補題\ref{Gsolve}および補題\ref{G3num}から直接導かれる．
+
+
+\section{再帰アルゴリズム}
+この節では，以下の定理\ref{recursive(n)}を証明する．
+\begin{jthe}\label{recursive(n)}\upshape
+	3集合整列問題を高々$(15/16)n^2+O(n)$回の交換で解くことができる再帰アルゴリズム，$Recursive(n)$が存在する．
+\end{jthe}
+\subsection{Recursive($n$)アルゴリズム}
+$k=3$の整列問題を解くことができる$Recursive(n)$は，表\ref{saiki}で与えられる．この節では，$Recursive(n)$の
+正当性を示すために，以下の補題\ref{Rsolve}を示した．
+証明について，詳細は省略するが，1--4行目をステップ1，5--11行目をステップ2，12--14行目をステップ3として，それぞれのステップの後のボールの位置を示すことで証明を行った．
+
+\begin{lemm}\label{Rsolve}
+	$Recursive(n)$アルゴリズムは$n$個のバケツに対して正しく解くことができる．
+\end{lemm}
+
+\begin{table}[h]
+	\caption{再帰アルゴリズム}
+	\begin{tabular}{l}
+		\bhline{1.3pt}
+		{\bf アルゴリズム 2}：$Recursive(n)$, $n$:\textbf{整数}  \\ \hline
+		\, 1: \textbf{for} $x=n$ to $\lceil n/2 \rceil+1$ \\
+		\, 2: ~~$x_3$を$x$番のバケツにmove\\
+		\, 3: ~~$x_2$を$x$番のバケツにmove\\
+		\, 4: \textbf{end for} \\
+		\, 5: \textbf{for} $x=1$ to $n$ \\
+		\, 6: ~~1番のバケツから$\lceil n/3 \rceil$番のバケツにある$x_1$\\
+		~~~~~~~のボールを$\lceil x/3 \rceil$にリラベルする \\
+		\, 7: \textbf{end for} \\
+		\, 8: \textbf{if} $\lceil n/3 \rceil$番のバケツに$y_2かy_3(y\in[n])$がある \textbf{then}\\
+		\, 9: ~~そのボールを$\lceil n/3 \rceil$にリラベルする \\
+		10:  最初の$\lceil n/3 \rceil$個のバケツについて\\
+		~~~~~$Recursive(\lceil n/3 \rceil)$を適用しボールを並び替える\\
+		11: ラベルを元に戻す \\
+		12: \textbf{for} $x=n$ to 2 \\
+		13: ~~$x_1$を$x$番のバケツにmove\\
+		14: \textbf{end for} \\ \hline 
+	\end{tabular} 
+	\label{saiki}
+\end{table}
+
+
+
+\subsection{交換回数}
+
+この節では，$Recursive(n)$アルゴリズムの交換回数を解析し，以下の補題\ref{Rnum}を証明した．
+\begin{lemm}\label{Rnum}
+	$Recursive(n)$アルゴリズムの交換回数は$(15/16)n^2+12n$回よりも少ない．
+\end{lemm}
+補題\ref{Rnum}は，帰納法を用いて証明を行えるが，紙面の都合上省略する．\\
+
+定理\ref{recursive(n)}は，補題\ref{Rsolve}と補題\ref{Rnum}から直接導かれる．
+
+
+
+
+
+　
+\section{まとめ}
+本論文では，$k$集合整列問題というソーティング問題の一種について考えた．
+まず，任意の$k$について高々$((k+1)/4)n^2+O(k+n)$回の交換で解くことができる貪欲アルゴリズム，$Greedy(n,k)$を提案した．さらに，より詳細な解析をすることで$Greedy(n,3)$が高々$(24/25)n^2+O(n)$回で問題を解くことを示した．
+次に，$k=3$の場合しか解けないが，$Greedy(n,3)$よりも早く解くことができる，$Recursive(n)$を提案した．$Recursive(n)$は，高々$(15/16)n^2+O(n)$回の交換で3集合整列問題を解くことができる．
+
+
+今後の課題として，$Greedy(n,k)$の交換回数をより詳細に解析するという目標がある．加えて，再帰アルゴリズムを任意の$k\geq4$にも適用できるよう拡張するという目標もある．
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%            参考文献              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thebibliography}{9}
+	
+\bibitem{EW09}
+S. Elizalde and P. Winkler, Sorting by placement and shift, Proceedings of the 20th Assosiation for Computing Machinery/Society for Industrial and Applied Mathematics Symposium on Discrete Algorithms (SODA 2009), pp.~68--75, 2009.
+
+\bibitem{EEKSW01}
+H. Eriksson, K. Eriksson, J. Karlander, L. Svensson and J. W\'astlund, Sorting a bridge hand, Descrete Mathematics 241(1--3), pp.~289--300, 2001.
+
+\bibitem{ITY12}
+H. Ito, J. Teruyama and Y. Yoshida, An almost optimal algorithm for winkler's 
+sorting pairs in bins, Progress in Informatics 9, pp.~3--7, 2012.
+
+\bibitem{KKCBH75}
+D.J. Kleitman, E. Kramer J.H. Conway, S. Bell and H. Dweighter, Elementary problems,  American Mathematical Monthly 82(10), pp.~1009--1010, 1975.
+
+\bibitem{NST14}
+A. Nagao, K. Seto and J. Teruyama, Efficient algorithms for sorting k-sets in bins, Proceedings of the 8th International Workshop on Algorithms and Computation (WALCOM 2014), Lecture Notes in Computer Science 8344, pp.~225--236, 2014.
+
+
+\bibitem{P18}
+ A. P\"uttmann, KRAWATTENPROBLEM,
+http:\slash\slash{}\\www.springer.com\slash{}cda\slash{}content\slash{}document\slash{}cda\_\\downloaddocument\slash{}SAV\_Krawattenraetsel\_\\Loesung\_Puettmann,
+\newblock Retrieved: 2018/6/22.
+
+\bibitem{W18}
+D.B. West, Sorting pairs in bins (2004),
+http:\slash\slash{}www.math.uiuc.edu\slash{}\~{}west\slash{}regs\slash{}sortpair.html,
+\newblock Retrieved: 2018/06/22.
+
+\bibitem{Winkler04}
+P. Winkler, Mathematical Puzzles: A Connoisseur's Collection, A K Peters, Massachusetts, 2004.
+
+
+
+
+
+
+
+\end{thebibliography}
+
+\end{document}
