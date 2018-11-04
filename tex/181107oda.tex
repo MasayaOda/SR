@@ -1,321 +1,321 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%      Œ¤CA—pƒTƒ“ƒvƒ‹ƒtƒ@ƒCƒ‹     %
-%            LATEX2e—p             %
-%      2001”N4Œ8“ú by O‰Y        %
+%      $B8&=$(BA$BMQ%5%s%W%k%U%!%$%k(B     %
+%            LATEX2e$BMQ(B             %
+%      2001$BG/(B4$B7n(B8$BF|(B by $B;01:(B        %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[a4j,twocolumn]{jarticle}
-\usepackage{latexsym}
-%\usepackage[dvips]{graphicx,color}
-\usepackage[dvipdfmx]{graphicx,color}
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{cases}
-\usepackage{ascmac}
-\usepackage{fancybox}
-\usepackage{algorithm}
-\usepackage{algorithmic}
-\usepackage{mathrsfs}
-\usepackage{amssymb}
-\usepackage{comment}
-\usepackage{okumacro}
-%\usepackage{multicol}
-%\linespread{2.0}
+(J\(Bdocumentclass[a4j,twocolumn]{jarticle}
+(J\(Busepackage{latexsym}
+%(J\(Busepackage[dvips]{graphicx,color}
+(J\(Busepackage[dvipdfmx]{graphicx,color}
+(J\(Busepackage{amsmath}
+(J\(Busepackage{amsthm}
+(J\(Busepackage{cases}
+(J\(Busepackage{ascmac}
+(J\(Busepackage{fancybox}
+(J\(Busepackage{algorithm}
+(J\(Busepackage{algorithmic}
+(J\(Busepackage{mathrsfs}
+(J\(Busepackage{amssymb}
+(J\(Busepackage{comment}
+(J\(Busepackage{okumacro}
+%(J\(Busepackage{multicol}
+%(J\(Blinespread{2.0}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%        Œ´eƒTƒCƒY“™w’è          %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\topmargin=-2cm
-\leftmargin=0true cm
-\oddsidemargin=-1cm 
-\evensidemargin=-1cm
-\textwidth=17.5cm
-\textheight=26cm
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%        ©‘O‚Ì–½—ß“™İ’è          %
+%        $B869F%5%$%:Ey;XDj(B          %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newtheorem{theorem}{’è—}
-\newtheorem{jexa}{—á}
-\newtheorem{jcor}{Œn}
-\newtheorem{direc}{•ûj}
-\newcommand{\jpro}{\noindent {\bf Ø–¾}\ \ }
-\newtheorem{defi}{’è‹`}
-\newtheorem{lemm}{•â‘è}
-
-\newcommand{\bhline}[1]{\noalign{\hrule height #1}}
-\newcommand{\cut}[1]{{\rm cut\_from\_hit}(#1)}
-
-\newcommand{\jda}[1]{A_{#1}}
-\newcommand{\jitr}{{\rm ITR{\footnotesize{ECONF}}}}
-\newcommand{\jdu}{u}
-\newcommand{\jdv}{v}
-\newcommand{\jdvv}[1] {v_#1}
-\newcommand{\jtree}[1]{T_#1}
-\newcommand{\jind}[1]{I_#1}
-\newcommand{\jpu}{u}
-\newcommand{\jpv}{v}
-
-\newcommand{\jsiki}{t}
-
-\newcommand{\jmisr}{Å‘å“Æ—§“_W‡‘JˆÚ–â‘è}
-\newcommand{\jkis}{“Æ—§“_W‡–â‘è}
-\newcommand{\jwt}{t}
-\newcommand{\jju}{U}
-\newcommand{\jjw}{W}
-\newcommand{\jwu}[1]{u_{#1}}
-\newcommand{\jww}[1]{w_{#1}}
-\newcommand{\jws}[1]{s_{#1}}
-
-
-\renewcommand{\proofname}{Ø–¾}
-
- \makeatletter
-    \renewcommand{\thefigure}{%
-    \arabic{figure}}
-  \makeatother
-
-\begin{document}
+(J\(Btopmargin=-2cm
+(J\(Bleftmargin=0true cm
+(J\(Boddsidemargin=-1cm 
+(J\(Bevensidemargin=-1cm
+(J\(Btextwidth=17.5cm
+(J\(Btextheight=26cm
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%            ƒ^ƒCƒgƒ‹              %
+%        $B<+A0$NL?NaEy@_Dj(B          %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\twocolumn[
-2018 ”N10Œ10
-“ú~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~‰@ƒ[ƒ~”­•\—p‘—¿\\
-\begin{center}
-	\begin{huge}
-		ƒ‚ƒ“ƒeƒJƒ‹ƒ–@‚ÉŠî‚Ã‚­Flood-It‚ÌAI‚ÉŠÖ‚·‚éŒ¤‹†
-	\end{huge}
-\end{center}
 
-\begin{center}
-	\begin{large}
-		\textbf{üEˆÉ“¡Œ¤‹†º@Šw•”4”N@¬“c«–ç}
-	\end{large}
-\end{center}
+(J\(Bnewtheorem{theorem}{$BDjM}(B}
+(J\(Bnewtheorem{jexa}{$BNc(B}
+(J\(Bnewtheorem{jcor}{$B7O(B}
+(J\(Bnewtheorem{direc}{$BJ}?K(B}
+(J\(Bnewcommand{(J\(Bjpro}{(J\(Bnoindent {(J\(Bbf $B>ZL@(B}(J\(B (J\(B }
+(J\(Bnewtheorem{defi}{$BDj5A(B}
+(J\(Bnewtheorem{lemm}{$BJdBj(B}
+
+(J\(Bnewcommand{(J\(Bbhline}[1]{(J\(Bnoalign{(J\(Bhrule height #1}}
+(J\(Bnewcommand{(J\(Bcut}[1]{{(J\(Brm cut(J\(B_from(J\(B_hit}(#1)}
+
+(J\(Bnewcommand{(J\(Bjda}[1]{A_{#1}}
+(J\(Bnewcommand{(J\(Bjitr}{{(J\(Brm ITR{(J\(Bfootnotesize{ECONF}}}}
+(J\(Bnewcommand{(J\(Bjdu}{u}
+(J\(Bnewcommand{(J\(Bjdv}{v}
+(J\(Bnewcommand{(J\(Bjdvv}[1] {v_#1}
+(J\(Bnewcommand{(J\(Bjtree}[1]{T_#1}
+(J\(Bnewcommand{(J\(Bjind}[1]{I_#1}
+(J\(Bnewcommand{(J\(Bjpu}{u}
+(J\(Bnewcommand{(J\(Bjpv}{v}
+
+(J\(Bnewcommand{(J\(Bjsiki}{t}
+
+(J\(Bnewcommand{(J\(Bjmisr}{$B:GBgFHN)E@=89gA+0\LdBj(B}
+(J\(Bnewcommand{(J\(Bjkis}{$BFHN)E@=89gLdBj(B}
+(J\(Bnewcommand{(J\(Bjwt}{t}
+(J\(Bnewcommand{(J\(Bjju}{U}
+(J\(Bnewcommand{(J\(Bjjw}{W}
+(J\(Bnewcommand{(J\(Bjwu}[1]{u_{#1}}
+(J\(Bnewcommand{(J\(Bjww}[1]{w_{#1}}
+(J\(Bnewcommand{(J\(Bjws}[1]{s_{#1}}
+
+
+(J\(Brenewcommand{(J\(Bproofname}{$B>ZL@(B}
+
+ (J\(Bmakeatletter
+    (J\(Brenewcommand{(J\(Bthefigure}{%
+    (J\(Barabic{figure}}
+  (J\(Bmakeatother
+
+(J\(Bbegin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%            $B%?%$%H%k(B              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(J\(Btwocolumn[
+2018 $BG/(B10$B7n(B10
+$BF|(B~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~$B1!%<%_(B$BH/I=MQ;qNA(J\\(B
+(J\(Bbegin{center}
+	(J\(Bbegin{huge}
+		$B%b%s%F%+%k%mK!$K4p$E$/(BFlood-It$B$N(BAI$B$K4X$9$k8&5f(B
+	(J\(Bend{huge}
+(J\(Bend{center}
+
+(J\(Bbegin{center}
+	(J\(Bbegin{large}
+		(J\(Btextbf{$B<~!&0KF#8&5f<<!!3XIt(B4$BG/!!>.ED>-Li(B}
+	(J\(Bend{large}
+(J\(Bend{center}
 ]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%              –{•¶                %
+%              $BK\J8(B                %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{‚Í‚¶‚ß‚É}
-\textbf{Flood-It}‚Æ‚ÍC$n \times m$‚ÌF•ª‚¯‚³‚ê‚½ƒOƒŠƒbƒhã‚Ås‚¤ƒQ[ƒ€‚Å‚ ‚éD
-Flood-It‚ÍƒOƒŠƒbƒh‚Ìˆê”Ô¶ã‚É‚ ‚éƒ}ƒX‚ğ\textbf{Šî€(ƒsƒ{ƒbƒg)}‚Æ‚µ‚Äi‚ß‚Ä‚¢‚­ƒQ[ƒ€‚Å‚ ‚èC1‰ñ‚Ì‘€ì‚Åƒsƒ{ƒbƒg‚ğ‚ ‚éF‚©‚ç•Ê‚Ì‚ ‚éF‚Ö•ÏX‚·‚éDƒsƒ{ƒbƒg‚©‚çã‰º¶‰E‚ÉŒ»İ‚ÌF‚Ì‚İ‚ğ’H‚Á‚Ä‚½‚Ç‚è’…‚­‚±‚Æ‚ª‚Å‚«‚éƒ}ƒX‚ÌW‡‚ªC
-\textbf{©•ª‚Ì—Ì’n}‚Å‚ ‚èCƒsƒ{ƒbƒg‚ÌF‚Ì•ÏX‚Æ“¯‚É©•ª‚Ì—Ì’n‚Ì‘S‚Ä‚Ìƒ}ƒX‚ÌF‚ª“¯‚¶F‚É•Ï‚í‚éD
-}\ref{oneman}‚É‘€ì‚Ì—á‚ğ¦‚·D‘€ì‘O}(a)‚ÌÎü‚Å•\‚µ‚½3ƒ}ƒX‚ª©•ª‚Ì—Ì’n‚Å‚ ‚èC
-‚±‚±‚Éƒsƒ{ƒbƒg‚ÌF‚ğ1‚©‚ç2‚Ö•Ï‚¦‚é‘€ì‚ğ“K—p‚·‚é‚ÆC
-‘€ìŒã}(b)‚ÌƒOƒŠƒbƒh‚ª“¾‚ç‚ê‚éD‚±‚Ì‘€ì‚ğŒJ‚è•Ô‚µ$n \times m$ƒ}ƒX‘S‚Ä‚Ìƒ}ƒX‚ğ©•ª‚Ì—Ì’n‚É‚·‚é‚±‚Æ‚ª–Ú“I‚Å‚ ‚éD
-‚±‚Ì‚Æ‚«C‘€ì”‚ªÅ¬‚Æ‚È‚é‚æ‚¤‚È‘€ì—ñ‚ğ‹‚ß‚é‚±‚Æ‚ªFlood-It‚Ì–â‘è‚Å‚ ‚éD
+(J\(Bsection{$B$O$8$a$K(B}
+(J\(Btextbf{Flood-It}$B$H$O!$(B$n (J\(Btimes m$$B$N?'J,$1$5$l$?%0%j%C%I>e$G9T$&%2!<%`$G$"$k!%(B
+Flood-It$B$O%0%j%C%I$N0lHV:8>e$K$"$k%^%9$r(J\(Btextbf{$B4p=`(B($B%T%\%C%H(B)}$B$H$7$F?J$a$F$$$/%2!<%`$G$"$j!$(B1$B2s$NA`:n$G%T%\%C%H$r$"$k?'$+$iJL$N$"$k?'$XJQ99$9$k!%%T%\%C%H$+$i>e2<:81&$K8=:_$N?'$N$_$rC)$C$F$?$I$jCe$/$3$H$,$G$-$k%^%9$N=89g$,!$(B
+(J\(Btextbf{$B<+J,$NNNCO(B}$B$G$"$j!$%T%\%C%H$N?'$NJQ99$H(B$BF1;~$K<+J,$NNNCO$NA4$F$N%^%9$N?'$,F1$8?'$KJQ$o$k!%(B
+$B?^(J\(Bref{oneman}$B$KA`:n$NNc$r<($9!%A`:nA0?^(B(a)$B$N<P@~$GI=$7$?(B3$B%^%9$,<+J,$NNNCO$G$"$j!$(B
+$B$3$3$K%T%\%C%H$N?'$r(B1$B$+$i(B2$B$XJQ$($kA`:n$rE,MQ$9$k$H!$(B
+$BA`:n8e?^(B(b)$B$N%0%j%C%I$,F@$i$l$k!%$3$NA`:n$r7+$jJV$7(B$n (J\(Btimes m$$B%^%9A4$F$N%^%9$r<+J,$NNNCO$K$9$k$3$H$,L\E*$G$"$k!%(B
+$B$3$N$H$-!$A`:n?t$,:G>.$H$J$k$h$&$JA`:nNs$r5a$a$k$3$H$,(BFlood-It$B$NLdBj$G$"$k!%(B
 
 
-Flood-It‚Ì–â‘è‚ÉŠÖ‚µ‚Ä‚ÍCŠù’m‚ÌŒ‹‰Ê‚Æ‚µ‚ÄƒOƒŠƒbƒh‚Ì‘å‚«‚³‚ª$n \times n$‚È‚ç‚ÎNP¢“ï\cite{}
-$3*n$‚È‚ç‚ÎNP¢“ï\citeC$2 \times n$‚È‚ç‚Ç‚ñ‚ÈF”‚Å‚à‘½€®ŠÔ‚Å‰ğ‚¯‚é‚±‚Æ‚ª’m‚ç‚ê‚Ä‚¢‚é\cite{}D
+Flood-It$B$NLdBj$K4X$7$F$O!$4{CN$N7k2L$H$7$F%0%j%C%I$NBg$-$5$,(B$n (J\(Btimes n$$B$J$i$P(BNP$B:$Fq(J\(Bcite{}
+$3*n$$B$J$i$P(BNP$B:$Fq(J\(Bcite$B!$(B$2 (J\(Btimes n$$B$J$i$I$s$J?'?t$G$bB?9`<0;~4V$G2r$1$k$3$H$,CN$i$l$F$$$k(J\(Bcite{}$B!%(B
 
 
-–{Œ¤‹†‚Å‚ÍCFlood-It‚ğ“ñl‘Îí—pƒQ[ƒ€‚É‚µ‚½‚à‚Ì‚ğl‚¦‚éD
+$BK\8&5f$G$O!$(BFlood-It$B$rFs?MBP@oMQ%2!<%`$K$7$?$b$N$r9M$($k!%(B
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%       Šî–{“I‚È€”õE’è‹`        %
+%       $B4pK\E*$J=`Hw!&Dj5A(B        %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%P
-\section{’è‹`E€”õ}
-\subsection{ƒOƒ‰ƒt}
-–³ŒüƒOƒ‰ƒt$G=(V,E)$‚ğ’¸“_W‡$V$‚Æ•ÓW‡$E\subseteq V^2$‚Ì‘g‚Æ‚·‚éD–{Œ¤‹†‚Å‚ÍC$G$‚Í’Pƒ‚©‚Â—LŒÀ‚Å‚ ‚é‚Æ‚·‚éD$V$‚Ì2’¸“_$\jdu,\jdv$‚É‘Î‚µ‚ÄC$\{\jdu,\jdv\}\in E$‚È‚ç‚Î$\jdu$‚Æ$\jdv$‚Í$G$‚É‚¨‚¢‚Ä\textbf{—×Ú‚µ‚Ä‚¢‚é}‚Æ‚¢‚¤D
+(J\(Bsection{$BDj5A!&=`Hw(B}
+(J\(Bsubsection{$B%0%i%U(B}
+$BL58~%0(B$B%i%U(B$G=(V,E)$$B$rD:E@=89g(B$V$$B$HJU=89g(B$E(J\(Bsubseteq V^2$$B$NAH$H$9$k!%K\8&5f$G$O!$(B$G$$B$OC1=c$+$DM-8B$G$"$k$H$9$k!%(B$V$$B$N(B2$BD:E@(B$(J\(Bjdu,(J\(Bjdv$$B$KBP$7$F!$(B$(J\(B{(J\(Bjdu,(J\(Bjdv(J\(B}(J\(Bin E$$B$J$i$P(B$(J\(Bjdu$$B$H(B$(J\(Bjdv$$B$O(B$G$$B$K$*$$$F(J\(Btextbf{$BNY@\$7$F$$$k(B}$B$H$$$&!%(B
 
-ƒOƒ‰ƒt$G=(V,E)$“à‚Ì“_$\jdvv{0}$‚©‚ç“_$\jdvv{l}$‚Ö‚Ì•à“¹$W$‚ÍC˜A‘±‚µ‚½“_‚Ì—ñ$\langle \jdvv{0},\jdvv{1},...,\jdvv{l} \rangle$‚Å‚ ‚éD‚±‚±‚ÅC$1\le i\le l$‚È‚éŠe®”‚É‚Â‚¢‚ÄC$\{\jdvv{{i-1}} \jdvv{i}\}\in E$‚Å‚ ‚éD‚±‚Ì‚Æ‚«C$l$‚ğ\textbf{•à“¹‚Ì’·‚³}‚Æ‚¢‚¤D‚³‚ç‚ÉC$\jdvv{0}$‚©‚ç$\jdvv{l}$‚Ö‚Ì•à“¹‚ğ\textbf{$\langle \jdvv{0},\jdvv{l}\rangle$•à“¹}‚ÆŒÄ‚ÔD
+$B%0%i%U(B$G=(V,E)$$BFb$NE@(B$(J\(Bjdvv{0}$$B$+$iE@(B$(J\(Bjdvv{l}$$B$X$NJbF;(B$W$$B$O!$O"B3$7$?E@$NNs(B$(J\(Blangle (J\(Bjdvv{0},(J\(Bjdvv{1},...,(J\(Bjdvv{l} (J\(Brangle$$B$G$"$k!%$3$3$G!$(B$1(J\(Ble i(J\(Ble l$$B$J$k3F@0?t$K$D$$$F!$(B$(J\(B{(J\(Bjdvv{{i-1}} (J\(Bjdvv{i}(J\(B}(J\(Bin E$$B$G$"$k!%$3$N$H$-!$(B$l$$B$r(J\(Btextbf{$BJbF;$ND9$5(B}$B$H$$$&!%$5$i$K!$(B$(J\(Bjdvv{0}$$B$+$i(B$(J\(Bjdvv{l}$$B$X$NJbF;$r(J\(Btextbf{$(J\(Blangle (J\(Bjdvv{0},(J\(Bjdvv{l}(J\(Brangle$$BJbF;(B}$B$H8F$V!%(B
 
-$\langle \jdu,\jdv \rangle$•à“¹‚ÉŠÜ‚Ü‚ê‚é$\jdu$‚Æ$\jdv $ˆÈŠO‚Ì‘S‚Ä‚Ì’¸“_‚ªˆÙ‚È‚é‚Æ‚«C$\langle \jdu,\jdv \rangle$•à“¹‚Í\textbf{$\langle \jdu,\jdv \rangle$“¹(ƒpƒX)}C‚ ‚é‚¢‚Í’P‚É\textbf{$\jdu$‚Æ$\jdv$‚ğŒ‹‚Ô“¹(ƒpƒX)}‚ÆŒÄ‚Î‚ê‚éD‚Ü‚½C’·‚³‚ª³‚Å‚ ‚é$\langle \jdu,\jdu \rangle$“¹‚Í\textbf{•Â˜H(ƒTƒCƒNƒ‹)}‚ÆŒÄ‚Î‚ê‚éD
-ƒOƒ‰ƒt$G$‚Ì”CˆÓ‚Ì2“_$\jdu,\jdv \in V$‚ÌŠÔ‚Éí‚É$\langle \jdu,\jdv \rangle$“¹‚ª‚ ‚é‚Æ‚«C$G$‚Í\textbf{˜AŒ‹}‚Å‚ ‚é‚Æ‚¢‚¤D‚à‚µ$G$‚É•Â˜H‚ª‘¶İ‚µ‚È‚¢‚©‚Â˜AŒ‹‚È‚ç‚ÎC$G$‚Í\textbf{–Ø}‚Å‚ ‚éD
+$(J\(Blangle (J\(Bjdu,(J\(Bjdv (J\(Brangle$$BJbF;$K4^$^$l$k(B$(J\(Bjdu$$B$H(B$(J\(Bjdv $$B0J30$NA4$F$ND:E@$,0[$J$k$H$-!$(B$(J\(Blangle (J\(Bjdu,(J\(Bjdv (J\(Brangle$$BJbF;$O(J\(Btextbf{$(J\(Blangle (J\(Bjdu,(J\(Bjdv (J\(Brangle$$BF;(B($B%Q%9(B)}$B!$$"$k$$$OC1$K(J\(Btextbf{$(J\(Bjdu$$B$H(B$(J\(Bjdv$$B$r7k$VF;(B($B%Q%9(B)}$B$H8F$P$l$k!%$^$?!$D9$5$,@5$G$"$k(B$(J\(Blangle (J\(Bjdu,(J\(Bjdu (J\(Brangle$$BF;$O(J\(Btextbf{$BJDO)(B($B%5%$%/%k(B)}$B$H8F$P$l$k!%(B
+$B%0%i%U(B$G$$B$NG$0U$N(B2$BE@(B$(J\(Bjdu,(J\(Bjdv (J\(Bin V$$B$N4V$K>o$K(B$(J\(Blangle (J\(Bjdu,(J\(Bjdv (J\(Brangle$$BF;$,$"$k$H$-!$(B$G$$B$O(J\(Btextbf{$BO"7k(B}$B$G$"$k$H$$$&!%$b$7(B$G$$B$KJDO)$,B8:_$7$J$$$+$DO"7k$J$i$P!$(B$G$$B$O(J\(Btextbf{$BLZ(B}$B$G$"$k!%(B
 
-ƒOƒ‰ƒt$G=(V,E)$C$G^\prime=(V^\prime,E^\prime)$‚É‚¨‚¢‚ÄC$V^\prime \subseteq V$‚©‚Â$E^\prime \subseteq E$‚Å‚ ‚é‚Æ‚«C$G^\prime$‚Í$G$‚Ì•”•ªƒOƒ‰ƒt‚Æ‚¢‚¤D“Á‚ÉC$E^\prime=\{\{\jdu,\jdv\}\in E\mid \jdu,\jdv\in V^\prime\}$‚Å‚ ‚é‚Æ‚«C$G^\prime$‚Í$G$‚Ì\textbf{—U“±•”•ªƒOƒ‰ƒt}‚Æ‚¢‚¤D‚à‚µ$G^\prime$‚ª–Ø‚Å‚ ‚é‚È‚ç‚ÎC$G^\prime$‚Í\textbf{—U“±–Ø}‚Æ‚¢‚¤D}\ref{yudougi}‚Í—U“±–Ø‚Ì—á‚Å‚ ‚éD
+$B%0%i%U(B$G=(V,E)$$B!$(B$G^(J\(Bprime=(V^(J\(Bprime,E^(J\(Bprime)$$B$K$*$$$F!$(B$V^(J\(Bprime (J\(Bsubseteq V$$B$+$D(B$E^(J\(Bprime (J\(Bsubseteq E$$B$G$"$k$H$-!$(B$G^(J\(Bprime$$B$O(B$G$$B$NItJ,%0%i%U$H$$$&!%FC$K!$(B$E^(J\(Bprime=(J\(B{(J\(B{(J\(Bjdu,(J\(Bjdv(J\(B}(J\(Bin E(J\(Bmid (J\(Bjdu,(J\(Bjdv(J\(Bin V^(J\(Bprime(J\(B}$$B$G$"$k$H$-!$(B$G^(J\(Bprime$$B$O(B$G$$B$N(J\(Btextbf{$BM6F3It(B$BJ,%0%i%U(B}$B$H$$$&!%$b$7(B$G^(J\(Bprime$$B$,LZ$G$"$k$J$i$P!$(B$G^(J\(Bprime$$B$O(J\(Btextbf{$BM6F3LZ(B}$B$H$$$&!%?^(J\(Bref{yudougi}$B$OM6F3LZ$NNc$G$"$k!%(B
 
-\begin{figure}[htbp]
-	\begin{center}
-		\includegraphics[width=30mm,clip]{oneman.pdf}
-		\caption{‰¼‚Ì}}
-		\label{oneman}
-	\end{center}
-\end{figure}
+(J\(Bbegin{figure}[htbp]
+	(J\(Bbegin{center}
+		(J\(Bincludegraphics[width=30mm,clip]{oneman.pdf}
+		(J\(Bcaption{$B2>$N?^(B}
+		(J\(Blabel{oneman}
+	(J\(Bend{center}
+(J\(Bend{figure}
 
-\subsection{—U“±–Ø‘JˆÚ–â‘è}
-$G$‚É‚¨‚¯‚é“ñ‚Â‚Ì—U“±–Ø$\jtree{0},\jtree{r}$‚ª—^‚¦‚ç‚ê‚½‚Æ‚«C$\jtree{0}$‚©‚ç$\jtree{r}$‚Ö’iŠK“I‚É‘JˆÚ‰Â”\‚©‚Ç‚¤‚©‚ğ”»’è‚·‚é–â‘è‚ğ\textbf{—U“±–Ø‘JˆÚ–â‘è(\jitr)}‚Æ‚¢‚¤D‚±‚±‚ÅC—U“±–Ø‘JˆÚ–â‘è‚É‚¨‚¢‚Ä\textbf{’iŠK“I‚É‘JˆÚ‰Â”\}‚Å‚ ‚é‚Æ‚ÍCˆÈ‰º‚ÌğŒ‚ğ–‚½‚·—U“±–Ø‚ÌŒn—ñ$\langle \jtree{0},\jtree{1},\ldots,\jtree{\ell}\rangle$‚ª‘¶İ‚·‚é‚±‚Æ‚ğ‚¢‚¤D
+(J\(Bsubsection{$BM6F3LZA+0\LdBj(B}
+$G$$B$K$*$1$kFs$D$NM6F3LZ(B$(J\(Bjtree{0},(J\(Bjtree{r}$$B$,M?$($i$l$?$H$-!$(B$(J\(Bjtree{0}$$B$+$i(B$(J\(Bjtree{r}$$B$XCJ3,E*$KA+0\2DG=$+$I$&$+$rH=Dj$9$kLdBj$r(J\(Btextbf{$BM6F3LZA+0\LdBj(B((J\(Bjitr)}$B$H$$$&!%$3$3$G!$M6F3LZA+0\LdBj$K$*$$$F(J\(Btextbf{$BCJ3,E*$KA+0\2DG=(B}$B$G$"$k$H$O!$0J2<$N>r7o$rK~$?$9M6F3LZ$N7ONs(B$(J\(Blangle (J\(Bjtree{0},(J\(Bjtree{1},(J\(Bldots,(J\(Bjtree{(J\(Bell}(J\(Brangle$$B$,B8:_$9$k$3$H$r$$$&!%(B
 
-\begin{itemize}
-	\setlength{\itemsep}{-3pt}
-	\item Še$i \in \{0,1, \ldots ,\ell\}$‚É‘Î‚µC$\jtree{i}$‚Í—U“±–Ø‚Å‚ ‚èC$\jtree{\ell}=\jtree{r}$‚Å‚ ‚éD
-	\item Še$i \in \{0,1, \ldots ,\ell-1\}$‚É‘Î‚µC$\jtree{i+1}$‚Í$\jtree{i}$‚Éƒg[ƒNƒ“‚Ì‘€ì‚ğ‚¿‚å‚¤‚Çˆê‰ñs‚¤‚±‚Æ‚Å“¾‚ç‚ê‚éD
-\end{itemize}
+(J\(Bbegin{itemize}
+	(J\(Bsetlength{(J\(Bitemsep}{-3pt}
+	(J\(Bitem $B3F(B$i (J\(Bin (J\(B{0,1, (J\(Bldots ,(J\(Bell(J\(B}$$B$KBP$7!$(B$(J\(Bjtree{i}$$B$OM6F3LZ$G$"$j!$(B$(J\(Bjtree{(J\(Bell}=(J\(Bjtree{r}$$B$G$"$k!%(B
+	(J\(Bitem $B3F(B$i (J\(Bin (J\(B{0,1, (J\(Bldots ,(J\(Bell-1(J\(B}$$B$KBP$7!$(B$(J\(Bjtree{i+1}$$B$O(B$(J\(Bjtree{i}$$B$K%H!<%/%s$NA`:n$r$A$g$&$I0l2s9T$&$3$H$GF@$i$l$k!%(B
+(J\(Bend{itemize}
 
-‚±‚±‚ÅC—U“±–Ø‚ÌŠe’¸“_‚Éƒg[ƒNƒ“‚ª’u‚©‚ê‚Ä‚¢‚é‚Æ‚·‚é‚ÆC—U“±–Ø‘JˆÚ–â‘è‚É‚ÍTJƒ‹[ƒ‹CTSƒ‹[ƒ‹CTARƒ‹[ƒ‹‚ÌO‚Â‚Ì\textbf{‘JˆÚğŒ}‚ª‚ ‚éD
+$B$3$3$G!$M6F3LZ$N3FD:E@$K%H!<%/%s$,CV$+$l$F$$$k$H$9$k$H!$M6F3LZA+0\LdBj$K$O(BTJ$B%k!<%k!$(BTS$B%k!<%k!$(BTAR$B%k!<%k$N;0$D$N(J\(Btextbf{$BA+0\>r7o(B}$B$,$"$k!%(B
 
-TJƒ‹[ƒ‹‚Æ‚ÍŠe$i \in \{1,2,\ldots,\ell\}$‚É‘Î‚µC$\jtree{i-1}\setminus \jtree{i}=\{u\}$‚©‚Â$\jtree{i}\setminus \jtree{i-1}=\{v\}$C‚Â‚Ü‚è$u\in \jtree{i-1}$‚Ìƒg[ƒNƒ“‚ğ$v\in \jtree{i}$‚ÖˆÚ‚µ‚Ä$\jtree{i-1}$‚©‚ç$\jtree{i}$‚ğ“¾‚é‚±‚Æ‚ğ•\‚·D
+TJ$B%k!<%k$H$O3F(B$i (J\(Bin (J\(B{1,2,(J\(Bldots,(J\(Bell(J\(B}$$B$KBP$7!$(B$(J\(Bjtree{i-1}(J\(Bsetminus (J\(Bjtree{i}=(J\(B{u(J\(B}$$B$+$D(B$(J\(Bjtree{i}(J\(Bsetminus (J\(Bjtree{i-1}=(J\(B{v(J\(B}$$B!$$D$^$j(B$u(J\(Bin (J\(Bjtree{i-1}$$B$N%H!<%/%s$r(B$v(J\(Bin (J\(Bjtree{i}$$B$X0\$7$F(B$(J\(Bjtree{i-1}$$B$+$i(B$(J\(Bjtree{i}$$B$rF@$k$3$H$rI=$9!%(B
 
-TSƒ‹[ƒ‹‚Æ‚ÍŠe$i \in \{1,2,\ldots,\ell\}$‚É‘Î‚µC$\jtree{i-1}\setminus \jtree{i}=\{u\}$‚©‚Â$\jtree{i}\setminus \jtree{i-1}=\{v\}$‚©‚Â$\{u,v\}\in E$C‚Â‚Ü‚è$u\in \jtree{i-1}$‚Ìƒg[ƒNƒ“‚ğ•Ó$\{u,v\}$‚É‰ˆ‚Á‚Ä$v\in \jtree{i}$‚ÖˆÚ‚µ‚Ä$\jtree{i-1}$‚©‚ç$\jtree{i}$‚ğ“¾‚é‚±‚Æ‚ğ•\‚·D
+TS$B%k!<%k$H$O3F(B$i (J\(Bin (J\(B{1,2,(J\(Bldots,(J\(Bell(J\(B}$$B$KBP$7!$(B$(J\(Bjtree{i-1}(J\(Bsetminus (J\(Bjtree{i}=(J\(B{u(J\(B}$$B$+$D(B$(J\(Bjtree{i}(J\(Bsetminus (J\(Bjtree{i-1}=(J\(B{v(J\(B}$$B$+$D(B$(J\(B{u,v(J\(B}(J\(Bin E$$B!$$D$^$j(B$u(J\(Bin (J\(Bjtree{i-1}$$B$N%H!<%/%s$rJU(B$(J\(B{u,v(J\(B}$$B$K1h$C$F(B$v(J\(Bin (J\(Bjtree{i}$$B$X0\$7$F(B$(J\(Bjtree{i-1}$$B$+$i(B$(J\(Bjtree{i}$$B$rF@$k$3$H$rI=$9!%(B
 
-TARƒ‹[ƒ‹‚Æ‚Í‚ÍŠe$i \in \{1,2,\ldots,\ell\}$‚É‘Î‚µC$|\jtree{i-1}\bigtriangleup \jtree{i}|=1$C‚Â‚Ü‚è$u\in \jtree{i-1}$‚Ìƒg[ƒNƒ“‚ğíœC‚Ü‚½‚Í$u\notin \jtree{i-1}$‚Ìƒg[ƒNƒ“‚ğ’Ç‰Á‚µ‚Ä$\jtree{i-1}$‚©‚ç$\jtree{i}$‚ğ“¾‚é‚±‚Æ‚ğ•\‚·D
+TAR$B%k!<%k$H$O$O3F(B$i (J\(Bin (J\(B{1,2,(J\(Bldots,(J\(Bell(J\(B}$$B$KBP$7!$(B$|(J\(Bjtree{i-1}(J\(Bbigtriangleup (J\(Bjtree{i}|=1$$B!$$D$^$j(B$u(J\(Bin (J\(Bjtree{i-1}$$B$N%H!<%/%s$r:o=|!$$^$?$O(B$u(J\(Bnotin (J\(Bjtree{i-1}$$B$N%H!<%/%s$rDI2C$7$F(B$(J\(Bjtree{i-1}$$B$+$i(B$(J\(Bjtree{i}$$B$rF@$k$3$H$rI=$9!%(B
 
-Œn—ñ$\langle \jtree{0},\jtree{1},\ldots,\jtree{\ell}=\jtree{r}\rangle$‚ğ—U“±–Ø‘JˆÚ–â‘è‚É‚¨‚¯‚é$\jtree{0}$‚©‚ç$\jtree{r}$‚Ö‚Ì\textbf{‘JˆÚ—ñ}‚Æ‚¢‚¤D}\ref{senniretu}‚Í—U“±–Ø$\jtree{0}$‚©‚ç$\jtree{r}$‚Ö‚ÌTSƒ‹[ƒ‹‚Ì‰º‚Å‚Ì‘JˆÚ‚ğ•\‚µ‚Ä‚¨‚èC‘JˆÚ—ñ‚Í$\langle \jtree{0},\jtree{1},\jtree{2}=\jtree{r}\rangle$‚Æ‚È‚éD
+$B7ONs(B$(J\(Blangle (J\(Bjtree{0},(J\(Bjtree{1},(J\(Bldots,(J\(Bjtree{(J\(Bell}=(J\(Bjtree{r}(J\(Brangle$$B$rM6F3LZA+0\LdBj$K$*$1$k(B$(J\(Bjtree{0}$$B$+$i(B$(J\(Bjtree{r}$$B$X$N(J\(Btextbf{$BA+0\Ns(B}$B$H$$$&!%?^(J\(Bref{senniretu}$B$OM6F3LZ(B$(J\(Bjtree{0}$$B$+$i(B$(J\(Bjtree{r}$$B$X$N(BTS$B%k!<%k$N2<$G$NA+0\$rI=$7$F$*$j!$A+0\Ns$O(B$(J\(Blangle (J\(Bjtree{0},(J\(Bjtree{1},(J\(Bjtree{2}=(J\(Bjtree{r}(J\(Brangle$$B$H$J$k!%(B
 
-\begin{figure}[htbp]
-	\begin{center}
-		\includegraphics[width=90mm,clip]{senniretu.pdf}
-		\caption{‘JˆÚ—ñ‚Ì—á}
-		\label{senniretu}
-	\end{center}
-\end{figure}
+(J\(Bbegin{figure}[htbp]
+	(J\(Bbegin{center}
+		(J\(Bincludegraphics[width=90mm,clip]{senniretu.pdf}
+		(J\(Bcaption{$BA+0\Ns$NNc(B}
+		(J\(Blabel{senniretu}
+	(J\(Bend{center}
+(J\(Bend{figure}
 
-‚Ü‚½C\textbf{Å’Z—U“±–Ø‘JˆÚ–â‘è}‚ğ$\jtree{0}$‚©‚ç$\jtree{r}$‚Ö’·‚³‚ª‚X$\ell$‚Ì‘JˆÚ—ñ‚É‚¨‚¢‚Ä’iŠK“I‚É‘JˆÚ‰Â”\‚©‚Ç‚¤‚©‚ğ”»’è‚·‚é–â‘è‚Æ’è‹`‚·‚éD\\
+$B$^$?!$(J\(Btextbf{$B:GC;M6F3LZA+0\LdBj(B}$B$r(B$(J\(Bjtree{0}$$B$+$i(B$(J\(Bjtree{r}$$B$XD9$5$,9b!9(B$(J\(Bell$$B$NA+0\Ns$K$*$$$FCJ3,E*$KA+0\2DG=$+$I$&$+$rH=Dj$9$kLdBj$HDj5A$9$k!%(J\\(B
 
-—U“±–Ø‘JˆÚ–â‘è‚ÆÅ’Z—U“±–Ø‘JˆÚ–â‘è‚ÍCTJƒ‹[ƒ‹‚ÆTSƒ‹[ƒ‹‚É‚à“¯—l‚É’è‹`‚·‚é‚±‚Æ‚ª‚Å‚«‚éD
+$BM6F3LZA+0\LdBj$H:GC;M6F3LZA+0\LdBj$O!$(BTJ$B%k!<%k$H(BTS$B%k!<%k$K$bF1MM$KDj5A$9$k$3$H$,$G$-$k!%(B
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     –{˜_                        %
+%     $BK\O@(B                        %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{TSƒ‹[ƒ‹‚ÌW[1]¢“ï«}
-TSƒ‹[ƒ‹‚Ì‰º‚Å‚Ì\jitr ‚É‚¨‚¯‚é‰ğƒTƒCƒY‚ğ$k$C‘JˆÚ—ñ‚Ì’·‚³‚ğ$\ell$‚Æ•\‚·‚±‚Æ‚Æ‚·‚éD‰ğƒTƒCƒY$k$‚Æ‘JˆÚ—ñ‚Ì’·‚³$\ell$‚Ì“ñ‚Â‚ğƒpƒ‰ƒ[ƒ^‚Æ‚µ‚½‚Æ‚«CŸ‚Ì’è—‚ğ¦‚µ‚½D
+(J\(Bsection{TS$B%k!<%k$N(BW[1]$B:$Fq@-(B}
+TS$B%k!<%k$N2<$G$N(J\(Bjitr $B$K$*$1$k2r%5%$%:$r(B$k$$B!$A+0\Ns$ND9$5$r(B$(J\(Bell$$B$HI=$9$3$H$H$9$k!%2r%5%$%:(B$k$$B$HA+0\Ns$ND9$5(B$(J\(Bell$$B$NFs$D$r%Q%i%a!<%?$H$7$?$H$-!$<!$NDjM}$r<($7$?!%(B
 
 
 
 
-\begin{theorem}\label{jw1the}
-	\jitr ‚Í\rm{TS}ƒ‹[ƒ‹‚Ì‰º‚Å$k+\ell$‚ğƒpƒ‰ƒ[ƒ^‚Æ‚µ‚½‚Æ‚«‚É\rm{W[1]}¢“ï‚Å‚ ‚éD‚½‚¾‚µC$k$‚Í—U“±–Ø‚ÌƒTƒCƒY‚Å‚ ‚èC$\ell$‚Í‘JˆÚ—ñ‚Ì’·‚³‚Å‚ ‚éD
-\end{theorem}
+(J\(Bbegin{theorem}(J\(Blabel{jw1the}
+	(J\(Bjitr $B$O(J\(Brm{TS}$B%k!<%k$N2<$G(B$k+(J\(Bell$$B$r%Q%i%a!<%?$H$7$?$H$-$K(J\(Brm{W[1]}$B:$Fq$G$"$k!%$?$@$7!$(B$k$$B$OM6F3LZ$N%5%$%:$G$"$j!$(B$(J\(Bell$$B$OA+0\Ns$ND9$5$G$"$k!%(B
+(J\(Bend{theorem}
 
-‰äX‚ÍC\jkis ‚©‚ç\jitr ‚Ö‚Ìƒpƒ‰ƒ[ƒ^‰»‹A’…‚É‚æ‚èC–{–â‘è‚ÌW[1]¢“ï«‚ğ¦‚·D
+$B2f!9$O!$(J\(Bjkis $B$+$i(J\(Bjitr $B$X$N%Q%i%a!<%?2=5"Ce$K$h$j!$K\LdBj$N(BW[1]$B:$Fq@-$r<($9!%(B
 
-\jkis ‚ÍCƒOƒ‰ƒt$G=(V,E)$‚Æ³®”$\jwt$‚ª“ü—Í‚Æ‚µ‚Ä—^‚¦‚ç‚ê‚éD‚±‚Ì‚Æ‚«C$S$‚ªƒOƒ‰ƒt$G$‚Ì“Æ—§“_W‡‚Å‚ ‚èC$|S|=\jwt$‚Æ‚È‚é‚æ‚¤‚È’¸“_‚Ì•”•ªW‡$S\subseteq V$‚ª‘¶İ‚·‚é‚©‚ğ–â‚¤–â‘è‚Å‚ ‚éD
+(J\(Bjkis $B$O!$%0%i%U(B$G=(V,E)$$B$H@5@0?t(B$(J\(Bjwt$$B$,F~NO$H$7$FM?$($i$l$k!%$3$N$H$-!$(B$S$$B$,%0%i%U(B$G$$B$NFHN)E@=89g$G$"$j!$(B$|S|=(J\(Bjwt$$B$H$J$k$h$&$JD:E@$NItJ,=89g(B$S(J\(Bsubseteq V$$B$,B8:_$9$k$+$rLd$&LdBj$G$"$k!%(B
 
-\jkis ‚É‚Â‚¢‚ÄˆÈ‰º‚Ì’è—‚ª’m‚ç‚ê‚Ä‚¢‚éD
+(J\(Bjkis $B$K$D$$$F0J2<$NDjM}$,CN$i$l$F$$$k!%(B
 
-\begin{theorem}\rm{(\cite{jiswone})}
-	\jkis ‚Í“Æ—§“_W‡‚ÌƒTƒCƒY$\jwt$‚ğƒpƒ‰ƒ[ƒ^‚Æ‚µ‚½‚Æ‚«‚É{\rm W[1]}Š®‘S‚Å‚ ‚éD
-\end{theorem}
+(J\(Bbegin{theorem}(J\(Brm{((J\(Bcite{jiswone})}
+	(J\(Bjkis $B$OFHN)E@=89g$N%5%$%:(B$(J\(Bjwt$$B$r%Q%i%a!<%?$H$7$?$H$-$K(B{(J\(Brm W[1]}$B40A4$G$"$k!%(B
+(J\(Bend{theorem}
 
-‚Ü‚¸‚ÍƒCƒ“ƒXƒ^ƒ“ƒX‚Ì\¬‚ğ—^‚¦‚éD
+$B$^$:$O%$%s%9%?%s%9$N9=@.$rM?$($k!%(B
 
-\jkis ‚Ì”CˆÓ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚Å‚ ‚éƒOƒ‰ƒt$G^\prime=(V^\prime,E^\prime)$‚ğl‚¦‚éD‚±‚ê‚É‘Î‚µ‚ÄC\jitr ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğ\¬‚·‚é‚½‚ßˆÈ‰º‚ÌƒOƒ‰ƒt$G=(V,E)$‚ğ—^‚¦‚éD\\
-\\
-$V=K^\prime \cup \{v,x\}\cup \jju \cup \jjw$\\
-$E=\{v,x\}\cup
- \{\{v,y\}\mid y\in K^\prime \cup \jju \cup \jjw \}\cup 
- \{\{\jwu{i},\jww{j}\}\mid i,j=1,\ldots,\jwt+1\}\cup 
- \{\{v_x^i,v_y^j\},\{v_y^i,v_x^j\}\mid  i,j=1,\ldots,\jwt\,i\neq j,x,y=1,\ldots,n,\{v_x,v_y\}\in E^\prime\}\cup 
- \{\{v_a^i,v_a^j\}\mid i,j=1,\ldots,\jwt,i\neq j,a=1,\ldots,n\}$\\
-\\
-‚½‚¾‚µC$\jju=\{\jwu{1},\ldots,\jwu{\jwt+1}\}$C$\jjw=\{\jww{1},\ldots,\jww{\jwt+1}\}$C$V(K_i)=\{v_1^i,v_2^i,\ldots,v_n^i\}(i=1,\ldots n)$C$n=|V^\prime|$‚Å‚ ‚èC$K_1,\ldots,K_\jwt$‚ÍƒOƒ‰ƒt$G^\prime$‚Ì’¸“_W‡‚ÌŠ®‘SƒOƒ‰ƒt‚Å‚ ‚éD
-$K^\prime = K_1\cup \ldots \cup K_\jwt$‚Æ‚·‚éD
-‚Ü‚½C\jitr ‚Ì‰Šú‰ğ$\jtree{0}$C–Ú•W‰ğ$\jtree{r}$‚ğ$\jtree{0}=\{v,x\}\cup \jju$C$\jtree{r}=\{v,x\}\cup \jjw$‚Æ‚·‚éD
-$\jtree{0}$C$\jtree{r}$‚Í—U“±–Ø‚Æ‚È‚Á‚Ä‚¢‚éDƒOƒ‰ƒt$G$‚Ì}‚ğ}\ref{w1ins}‚É¦‚·D
+(J\(Bjkis $B$NG$0U$N%$%s%9%?%s%9$G$"$k%0%i%U(B$G^(J\(Bprime=(V^(J\(Bprime,E^(J\(Bprime)$$B$r9M$($k!%$3$l$KBP$7$F!$(J\(Bjitr $B$N%$%s%9%?%s%9$r9=@.$9$k$?$a0J2<$N%0%i%U(B$G=(V,E)$$B$rM?$($k!%(J\\(B
+(J\\(B
+$V=K^(J\(Bprime (J\(Bcup (J\(B{v,x(J\(B}(J\(Bcup (J\(Bjju (J\(Bcup (J\(Bjjw$(J\\(B
+$E=(J\(B{v,x(J\(B}(J\(Bcup
+ (J\(B{(J\(B{v,y(J\(B}(J\(Bmid y(J\(Bin K^(J\(Bprime (J\(Bcup (J\(Bjju (J\(Bcup (J\(Bjjw (J\(B}(J\(Bcup 
+ (J\(B{(J\(B{(J\(Bjwu{i},(J\(Bjww{j}(J\(B}(J\(Bmid i,j=1,(J\(Bldots,(J\(Bjwt+1(J\(B}(J\(Bcup 
+ (J\(B{(J\(B{v_x^i,v_y^j(J\(B},(J\(B{v_y^i,v_x^j(J\(B}(J\(Bmid  i,j=1,(J\(Bldots,(J\(Bjwt(J\(B,i(J\(Bneq j,x,y=1,(J\(Bldots,n,(J\(B{v_x,v_y(J\(B}(J\(Bin E^(J\(Bprime(J\(B}(J\(Bcup 
+ (J\(B{(J\(B{v_a^i,v_a^j(J\(B}(J\(Bmid i,j=1,(J\(Bldots,(J\(Bjwt,i(J\(Bneq j,a=1,(J\(Bldots,n(J\(B}$(J\\(B
+(J\\(B
+$B$?$@$7!$(B$(J\(Bjju=(J\(B{(J\(Bjwu{1},(J\(Bldots,(J\(Bjwu{(J\(Bjwt+1}(J\(B}$$B!$(B$(J\(Bjjw=(J\(B{(J\(Bjww{1},(J\(Bldots,(J\(Bjww{(J\(Bjwt+1}(J\(B}$$B!$(B$V(K_i)=(J\(B{v_1^i,v_2^i,(J\(Bldots,v_n^i(J\(B}(i=1,(J\(Bldots n)$$B!$(B$n=|V^(J\(Bprime|$$B$G$"$j!$(B$K_1,(J\(Bldots,K_(J\(Bjwt$$B$O%0%i%U(B$G^(J\(Bprime$$B$ND:E@=89g$N40A4%0%i%U$G$"$k!%(B
+$K^(J\(Bprime = K_1(J\(Bcup (J\(Bldots (J\(Bcup K_(J\(Bjwt$$B$H$9$k!%(B
+$B$^$?!$(J\(Bjitr $B$N=i4|2r(B$(J\(Bjtree{0}$$B!$L\I82r(B$(J\(Bjtree{r}$$B$r(B$(J\(Bjtree{0}=(J\(B{v,x(J\(B}(J\(Bcup (J\(Bjju$$B!$(B$(J\(Bjtree{r}=(J\(B{v,x(J\(B}(J\(Bcup (J\(Bjjw$$B$H$9$k!%(B
+$(J\(Bjtree{0}$$B!$(B$(J\(Bjtree{r}$$B$OM6F3LZ$H$J$C$F$$$k!%%0%i%U(B$G$$B$N?^$r?^(J\(Bref{w1ins}$B$K<($9!%(B
 
-\begin{figure*}[htbp]
-	\begin{center}
-		\includegraphics[width=120mm,clip]{w1ins.pdf}
-		\caption{(a)“Æ—§“_W‡–â‘è‚ÌƒOƒ‰ƒt$G$‚É‚¨‚¯‚é’¸“_$v_1,v_2,v_3$‚¨‚æ‚Ñ‚»‚ê‚ç‚ÉÚ‘±‚µ‚Ä‚¢‚é•ÓD(b)ƒCƒ“ƒXƒ^ƒ“ƒX‚Ì\¬.“ñdü‚Í$K_i,i=1,\ldots,\jwt$‚Ì‘S‚Ä‚Ì’¸“_‚ÉÚ‘±‚µ‚Ä‚¢‚é‚±‚Æ‚ğ•\‚·D‚Ü‚½C(a)‚É‚¨‚¯‚é“Æ—§“_W‡–â‘è‚ÌƒOƒ‰ƒt$G$‚Ì’¸“_$v_1,v_2,v_3$‚É‘Î‰‚·‚é’¸“_$v_1^i,v_2^i,v_3^i(i=1,\ldots,\jwt)$‚Ì•Ó‚ÌÚ‘±‚Í}‚Ì‚æ‚¤‚É‚È‚Á‚Ä‚¢‚éD‚±‚±‚Å$\{v_1^i,v_3^j\}\notin E(i,j=1,\ldots,\jwt,i\neq j)$‚Å‚ ‚é‚±‚Æ‚É’ˆÓ‚·‚é}
-		\label{w1ins}
-	\end{center}
-\end{figure*}
+(J\(Bbegin{figure*}[htbp]
+	(J\(Bbegin{center}
+		(J\(Bincludegraphics[width=120mm,clip]{w1ins.pdf}
+		(J\(Bcaption{(a)$BFHN)E@=89gLdBj$N%0%i%U(B$G$$B$K$*$1$kD:E@(B$v_1,v_2,v_3$$B$*$h$S$=$l$i$K@\B3$7$F$$$kJU!%(B(b)$B%$%s%9%?%s%9$N9=@.(B.$BFs=E@~$O(B$K_i,i=1,(J\(Bldots,(J\(Bjwt$$B$NA4$F$ND:E@$K@\B3$7$F$$$k$3$H$rI=$9!%$^$?!$(B(a)$B$K$*$1$kFHN)E@=89gLdBj$N%0%i%U(B$G$$B$ND:E@(B$v_1,v_2,v_3$$B$KBP1~$9$kD:E@(B$v_1^i,v_2^i,v_3^i(i=1,(J\(Bldots,(J\(Bjwt)$$B$NJU$N@\B3$O?^$N$h$&$K$J$C$F$$$k!%$3$3$G(B$(J\(B{v_1^i,v_3^j(J\(B}(J\(Bnotin E(i,j=1,(J\(Bldots,(J\(Bjwt,i(J\(Bneq j)$$B$G$"$k$3$H$KCm0U$9$k(B}
+		(J\(Blabel{w1ins}
+	(J\(Bend{center}
+(J\(Bend{figure*}
 
 
 
-ˆÈ‰º‚Å‚ÍC’è—\ref{jw1the}‚ÌØ–¾‚ğ—^‚¦‚éD
+$B0J2<$G$O!$DjM}(J\(Bref{jw1the}$B$N>ZL@$rM?$($k!%(B
 
-\begin{proof}
-	–{Í‚Å\¬‚µ‚½ƒCƒ“ƒXƒ^ƒ“ƒX‚ğ—p‚¢‚éD‚±‚Ì\¬‚ÍC\jkis ‚Ì“ü—Í‚Ì‘½€®ŠÔ‚Ås‚¤‚±‚Æ‚ª‚Å‚«‚éD‚Ü‚½C\jitr ‚Ì—U“±–Ø‚ÌƒTƒCƒY‚¨‚æ‚Ñ‘JˆÚ—ñ‚Ì’·‚³‚Í\jkis ‚Ì“ü—Í‚Ì$\jwt$‚Ì‚İ‚ÉˆË‘¶‚µ‚Ä‚¢‚éD
+(J\(Bbegin{proof}
+	$BK\>O$G9=@.$7$?%$%s%9%?%s%9$rMQ$$$k!%$3$N9=@.$O!$(J\(Bjkis $B$NF~NO$NB?9`<0;~4V$G9T$&$3$H$,$G$-$k!%$^$?!$(J\(Bjitr $B$NM6F3LZ$N%5%$%:$*$h$SA+0\Ns$ND9$5$O(J\(Bjkis $B$NF~NO$N(B$(J\(Bjwt$$B$N$_$K0MB8$7$F(B$B$$$k!%(B
 	
-	Ÿ‚ÉCƒOƒ‰ƒt$G^\prime$‚É‚¨‚¢‚ÄƒTƒCƒY$\jwt$‚Ì“Æ—§“_W‡‚ª‘¶İ‚·‚é‚Æ‚«C‚©‚Â‚»‚Ì‚Æ‚«‚ÉŒÀ‚èƒOƒ‰ƒt$G$‚É‚¨‚¢‚Ä\rm{TS}ƒ‹[ƒ‹‚Ì‰º‚Å$\jtree{0}$‚©‚ç$\jtree{r}$‚Ö‘JˆÚ‰Â”\‚Å‚ ‚é‚±‚Æ‚ğ¦‚·D
+	$B<!$K!$%0%i%U(B$G^(J\(Bprime$$B$K$*$$$F%5%$%:(B$(J\(Bjwt$$B$NFHN)E@=89g$,B8:_$9$k$H$-!$$+$D$=$N$H$-$K8B$j%0%i%U(B$G$$B$K$*$$$F(J\(Brm{TS}$B%k!<%k$N2<$G(B$(J\(Bjtree{0}$$B$+$i(B$(J\(Bjtree{r}$$B$XA+0\2DG=$G$"$k$3$H$r<($9!%(B
 	
-	ƒOƒ‰ƒt$G^\prime$‚É‚¨‚¢‚ÄƒTƒCƒY$\jwt$‚Ì“Æ—§“_W‡‚ª‘¶İ‚·‚é‚Æ‚«CƒOƒ‰ƒt$G$‚É‚¨‚¢‚Ä\rm{TS}ƒ‹[ƒ‹‚Ì‰º‚Å$\jtree{0}$‚©‚ç$\jtree{r}$‚Ö‘JˆÚ‰Â”\‚Å‚ ‚é‚±‚Æ‚ğ¦‚·DƒOƒ‰ƒt$G^\prime$‚É‚¨‚¢‚ÄƒTƒCƒY$\jwt$‚Ì“Æ—§“_W‡‚ª‘¶İ‚·‚é‚Æ‚«C$K_1,\ldots,K_k$‚É‚¨‚¢‚ÄC$G^\prime$‚ÌƒTƒCƒY$\jwt$‚Ì“Æ—§“_W‡‚É‘Î‰‚·‚é’¸“_W‡‚ğl‚¦‚éD
-	$K_1$‚É‚¨‚¢‚ÄC$G^\prime$‚ÌƒTƒCƒY$\jwt$‚Ì“Æ—§“_W‡‚É‘Î‰‚·‚é’¸“_W‡‚©‚ç1“_$\jws{1}$‚ğ‘I‚ÑC$K_2$‚É‚¨‚¢‚ÄC$G^\prime$‚ÌƒTƒCƒY$\jwt$‚Ì“Æ—§“_W‡‚É‘Î‰‚·‚é’¸“_W‡‚©‚ç$K_1$‚Å‘I‚ñ‚¾’¸“_‚ÆˆÙ‚È‚é’¸“_$\jws{2}$‚ğ‘I‚ÔD“¯—l‚ÉC$K_\jwt$‚É‚¨‚¢‚ÄC$G^\prime$‚ÌƒTƒCƒY$\jwt$‚Ì“Æ—§“_W‡‚É‘Î‰‚·‚é’¸“_W‡‚©‚ç$K_1,\ldots,K_{\jwt-1}$‚Å‘I‚ñ‚¾’¸“_‚ÆˆÙ‚È‚é’¸“_$\jws{\jwt}$‚ğ‘I‚ÔD
-	‚±‚Ì‚æ‚¤‚É‘I‚ñ‚¾’¸“_‚ÌW‡‚ğ$S=\{\jws{1},\jws{2},\ldots,\jws{\jwt}\}$‚Æ‚·‚éD
-	“Æ—§“_W‡‚Ì’è‹`‚æ‚è$S$‚Ì”CˆÓ‚Ì2“_ŠÔ‚É‚Í•Ó‚ª‘¶İ‚µ‚È‚¢‚Ì‚ÅC$\jtree{S}=\{v,x\}\cup S$‚Í—U“±–Ø‚Å‚ ‚éD
-	‚µ‚½‚ª‚Á‚ÄCˆÈ‰º‚Ì‚æ‚¤‚È‘JˆÚ—ñ‚ğ\¬‚·‚é‚±‚Æ‚ª‚Å‚«‚éD
-	‚Ü‚¸‰‚ß‚ÉCŠe$i\in \{1,\ldots,\jwt\}$‚É‚¨‚¯‚é$\jwu{i}\in \jju$‚Ìƒg[ƒNƒ“‚ğ$S$‚ÉˆÚ“®‚·‚éD
-	Ÿ‚É$\jwu{\jwt+1}$‚Ìƒg[ƒNƒ“‚ğ$\jww{\jwt+1}$‚ÉˆÚ“®‚·‚éD
-	ÅŒã‚ÉC$S$‚Ìƒg[ƒNƒ“‚ğˆê‚Â‚¸‚Â$\jww{i}\in \jjw,i\in \{1,\ldots,\jwt\}$‚ÉˆÚ“®‚·‚éDˆÈã‚É‚æ‚èCƒOƒ‰ƒt$G$‚É‚¨‚¢‚Ä\rm{TS}ƒ‹[ƒ‹‚Ì‰º‚Å$\jtree{0}$‚©‚ç$\jtree{r}$‚Ö‘JˆÚ‰Â”\‚Å‚ ‚éD
+	$B%0%i%U(B$G^(J\(Bprime$$B$K$*$$$F%5%$%:(B$(J\(Bjwt$$B$NFHN)E@=89g$,B8:_$9$k$H$-!$%0%i%U(B$G$$B$K$*$$$F(J\(Brm{TS}$B%k!<%k$N2<$G(B$(J\(Bjtree{0}$$B$+$i(B$(J\(Bjtree{r}$$B$XA+0\2DG=$G$"$k$3$H$r<($9!%%0%i%U(B$G^(J\(Bprime$$B$K$*$$$F%5%$%:(B$(J\(Bjwt$$B$NFHN)E@=89g$,B8:_$9$k$H$-!$(B$K_1,(J\(Bldots,K_k$$B$K$*$$$F!$(B$G^(J\(Bprime$$B$N%5%$%:(B$(J\(Bjwt$$B$NFHN)E@=89g$KBP1~$9$kD:E@=89g$r9M$($k!%(B
+	$K_1$$B$K$*$$$F!$(B$G^(J\(Bprime$$B$N%5%$%:(B$(J\(Bjwt$$B$NFHN)E@=89g$KBP1~$9$kD:E@=89g$+$i(B1$BE@(B$(J\(Bjws{1}$$B$rA*$S!$(B$K_2$$B$K$*$$$F!$(B$G^(J\(Bprime$$B$N%5%$%:(B$(J\(Bjwt$$B$NFHN)E@=89g$KBP1~$9$kD:E@=89g$+$i(B$K_1$$B$GA*$s$@D:E@$H0[$J$kD:E@(B$(J\(Bjws{2}$$B$rA*$V!%F1MM$K!$(B$K_(J\(Bjwt$$B$K$*$$$F!$(B$G^(J\(Bprime$$B$N%5%$%:(B$(J\(Bjwt$$B$NFHN)E@=89g$KBP(B$B1~$9$kD:E@=89g$+$i(B$K_1,(J\(Bldots,K_{(J\(Bjwt-1}$$B$GA*$s$@D:E@$H0[$J$kD:E@(B$(J\(Bjws{(J\(Bjwt}$$B$rA*$V!%(B
+	$B$3$N$h$&$KA*$s$@D:E@$N=89g$r(B$S=(J\(B{(J\(Bjws{1},(J\(Bjws{2},(J\(Bldots,(J\(Bjws{(J\(Bjwt}(J\(B}$$B$H$9$k!%(B
+	$BFHN)E@=89g$NDj5A$h$j(B$S$$B$NG$0U$N(B2$BE@4V$K$OJU$,B8:_$7$J$$$N$G!$(B$(J\(Bjtree{S}=(J\(B{v,x(J\(B}(J\(Bcup S$$B$OM6F3LZ$G$"$k!%(B
+	$B$7$?$,$C$F!$0J2<$N$h$&$JA+0\Ns$r9=@.$9$k$3$H$,$G$-$k!%(B
+	$B$^$:=i$a$K!$3F(B$i(J\(Bin (J\(B{1,(J\(Bldots,(J\(Bjwt(J\(B}$$B$K$*$1$k(B$(J\(Bjwu{i}(J\(Bin (J\(Bjju$$B$N%H!<%/%s$r(B$S$$B$K0\F0$9$k!%(B
+	$B<!$K(B$(J\(Bjwu{(J\(Bjwt+1}$$B$N%H!<%/%s$r(B$(J\(Bjww{(J\(Bjwt+1}$$B$K0\F0$9$k!%(B
+	$B:G8e$K!$(B$S$$B$N%H!<%/%s$r0l$D$:$D(B$(J\(Bjww{i}(J\(Bin (J\(Bjjw,i(J\(Bin (J\(B{1,(J\(Bldots,(J\(Bjwt(J\(B}$$B$K0\F0$9$k!%0J>e$K$h$j!$%0%i%U(B$G$$B$K$*$$$F(J\(Brm{TS}$B%k!<%k$N2<$G(B$(J\(Bjtree{0}$$B$+$i(B$(J\(Bjtree{r}$$B$XA+0\2DG=$G$"$k!%(B
 	
-	ƒOƒ‰ƒt$G$‚É‚¨‚¢‚Ä\rm{TS}ƒ‹[ƒ‹‚Ì‰º‚Å$\jtree{0}$‚©‚ç$\jtree{r}$‚Ö‘JˆÚ‰Â”\‚Å‚ ‚é‚Æ‚«CƒOƒ‰ƒt$G^\prime$‚É‚¨‚¢‚ÄƒTƒCƒY$\jwt$‚Ì“Æ—§“_W‡‚ª‘¶İ‚·‚é‚±‚Æ‚ğ¦‚·DƒOƒ‰ƒt$G$‚É‚¨‚¢‚Ä\rm{TS}ƒ‹[ƒ‹‚Ì‰º‚Å$\jtree{0}$‚©‚ç$\jtree{r}$‚Ö‘JˆÚ‰Â”\‚Å‚ ‚é‚Æ‚«C$W$‚Ì”CˆÓ‚Ì1“_‚É‰‚ß‚Äƒg[ƒNƒ“‚ªˆÚ“®‚·‚éuŠÔ‚ª‚ ‚é‚Í‚¸‚Å‚ ‚éD
-	$v$‚Éƒg[ƒNƒ“‚ª’u‚©‚ê‚Ä‚¢‚È‚¢‚Æ‚·‚é‚Æ”ñ˜AŒ‹‚Æ‚È‚Á‚Ä‚µ‚Ü‚¤‚½‚ßCí‚É$v$‚É‚Íƒg[ƒNƒ“‚ª’u‚©‚ê‚Ä‚¨‚èC‚Ü‚½$x$‚É‚àí‚Éƒg[ƒNƒ“‚ª’u‚©‚ê‚Ä‚¢‚éD
-	$W$‚Ì”CˆÓ‚Ì1“_‚É‰‚ß‚Äƒg[ƒNƒ“‚ğˆÚ“®‚µ‚½‚Æ‚«C$\jju$‚Éƒg[ƒNƒ“‚ªc‚Á‚Ä‚¢‚é‚Æ$\jju$‚Ì”CˆÓ‚Ì$1$“_‚Æ$v$‚Æ$W$‚É’Ç‰Á‚µ‚½$1$“_‚Å•Â˜H‚ª‚Å‚«‚Ä‚µ‚Ü‚¤D‚µ‚½‚ª‚Á‚ÄC$W$‚Ì”CˆÓ‚Ì1“_‚É‰‚ß‚Äƒg[ƒNƒ“‚ªˆÚ“®‚·‚é’¼‘O‚É‚¨‚¢‚ÄC$v,x$‚Æ$W$‚Ì”CˆÓ‚Ì1“_‚ÉˆÚ“®‚·‚éƒg[ƒNƒ“ˆÈŠO‚Ì$\jwt$ŒÂ‚Ìƒg[ƒNƒ“‚Í‚·‚×‚Ä$S$‚É’u‚©‚ê‚Ä‚¢‚éDˆÈã‚É‚æ‚èCƒOƒ‰ƒt$G^\prime$‚É‚¨‚¢‚ÄƒTƒCƒY$\jwt$‚Ì“Æ—§“_W‡‚ª‘¶İ‚·‚éD
-\end{proof}
+	$B%0%i%U(B$G$$B$K$*$$$F(J\(Brm{TS}$B%k!<%k$N2<$G(B$(J\(Bjtree{0}$$B$+$i(B$(J\(Bjtree{r}$$B$XA+0\2D(B$BG=$G$"$k$H$-!$%0%i%U(B$G^(J\(Bprime$$B$K$*$$$F%5%$%:(B$(J\(Bjwt$$B$NFHN)E@=89g$,B8:_$9$k$3$H$r<($9!%%0%i%U(B$G$$B$K$*$$$F(J\(Brm{TS}$B%k!<%k$N2<$G(B$(J\(Bjtree{0}$$B$+$i(B$(J\(Bjtree{r}$$B$XA+0\2DG=$G$"$k$H$-!$(B$W$$B$NG$0U$N(B1$BE@$K=i$a$F%H!<%/%s$,0\F0$9$k=V4V$,$"$k$O$:$G$"$k!%(B
+	$v$$B$K%H!<%/%s$,CV$+$l$F$$$J$$$H$9$k$HHsO"7k$H$J$C$F$7$^$&$?$a!$>o$K(B$v$$B$K$O%H!<%/%s$,CV$+$l$F$*$j!$$^$?(B$x$$B$K$b>o$K%H!<%/%s$,CV$+$l$F$$$k!%(B
+	$W$$B$NG$0U$N(B1$BE@$K=i$a$F%H!<%/%s$r0\F0$7$?$H$-!$(B$(J\(Bjju$$B$K%H!<%/%s$,;D$C$F$$$k$H(B$(J\(Bjju$$B$NG$0U$N(B$1$$BE@$H(B$v$$B$H(B$W$$B$KDI2C$7$?(B$1$$BE@$GJDO)$,$G$-$F$7$^$&!%$7$?$,$C$F!$(B$W$$B$NG$0U$N(B1$BE@$K=i$a$F%H!<%/%s$,0\F0$9$kD>A0$K$*$$$F!$(B$v,x$$B$H(B$W$$B$NG$0U$N(B1$BE@$K0\F0$9$k%H!<%/%s0J30$N(B$(J\(Bjwt$$B8D$N%H!<%/%s$O$9$Y$F(B$S$$B$KCV$+$l$F$$$k!%0J>e$K$h$j!$%0%i%U(B$G^(J\(Bprime$$B$K$*$$$F%5%$%:(B$(J\(Bjwt$$B$NFHN)E@=89g$,B8:_$9$k!%(B
+(J\(Bend{proof}
 
-\begin{table}[h]
-	\caption{Ä‹AƒAƒ‹ƒSƒŠƒYƒ€}
-	\begin{tabular}{l}
-		\bhline{1.3pt}
-		{\bf ƒAƒ‹ƒSƒŠƒYƒ€ 2}F$Recursive(n)$, $n$:\textbf{®”}  \\ \hline
-		\, 1: \textbf{for} $x=n$ to $\lceil n/2 \rceil+1$ \\
-		\, 2: ~~$x_3$‚ğ$x$”Ô‚ÌƒoƒPƒc‚Émove\\
-		\, 3: ~~$x_2$‚ğ$x$”Ô‚ÌƒoƒPƒc‚Émove\\
-		\, 4: \textbf{end for} \\
-		\, 5: \textbf{for} $x=1$ to $n$ \\
-		\, 6: ~~1”Ô‚ÌƒoƒPƒc‚©‚ç$\lceil n/3 \rceil$”Ô‚ÌƒoƒPƒc‚É‚ ‚é$x_1$\\
-		~~~~~~~‚Ìƒ{[ƒ‹‚ğ$\lceil x/3 \rceil$‚ÉƒŠƒ‰ƒxƒ‹‚·‚é \\
-		\, 7: \textbf{end for} \\
-		\, 8: \textbf{if} $\lceil n/3 \rceil$”Ô‚ÌƒoƒPƒc‚É$y_2‚©y_3(y\in[n])$‚ª‚ ‚é \textbf{then}\\
-		\, 9: ~~‚»‚Ìƒ{[ƒ‹‚ğ$\lceil n/3 \rceil$‚ÉƒŠƒ‰ƒxƒ‹‚·‚é \\
-		10:  Å‰‚Ì$\lceil n/3 \rceil$ŒÂ‚ÌƒoƒPƒc‚É‚Â‚¢‚Ä\\
-		~~~~~$Recursive(\lceil n/3 \rceil)$‚ğ“K—p‚µƒ{[ƒ‹‚ğ•À‚Ñ‘Ö‚¦‚é\\
-		11: ƒ‰ƒxƒ‹‚ğŒ³‚É–ß‚· \\
-		12: \textbf{for} $x=n$ to 2 \\
-		13: ~~$x_1$‚ğ$x$”Ô‚ÌƒoƒPƒc‚Émove\\
-		14: \textbf{end for} \\ \hline 
-	\end{tabular} 
-	\label{saiki}
-\end{table}
+(J\(Bbegin{table}[h]
+	(J\(Bcaption{$B:F5"%"%k%4%j%:%`(B}
+	(J\(Bbegin{tabular}{l}
+		(J\(Bbhline{1.3pt}
+		{(J\(Bbf $B%"%k%4%j%:%`(B 2}$B!'(B$Recursive(n)$, $n$:(J\(Btextbf{$B@0?t(B}  (J\\(B (J\(Bhline
+		(J\(B, 1: (J\(Btextbf{for} $x=n$ to $(J\(Blceil n/2 (J\(Brceil+1$ (J\\(B
+		(J\(B, 2: ~~$x_3$$B$r(B$x$$BHV$N%P%1%D$K(Bmove(J\\(B
+		(J\(B, 3: ~~$x_2$$B$r(B$x$$BHV$N%P%1%D$K(Bmove(J\\(B
+		(J\(B, 4: (J\(Btextbf{end for} (J\\(B
+		(J\(B, 5: (J\(Btextbf{for} $x=1$ to $n$ (J\\(B
+		(J\(B, 6: ~~1$BHV$N%P%1%D$+$i(B$(J\(Blceil n/3 (J\(Brceil$$BHV$N%P%1%D$K$"$k(B$x_1$(J\\(B
+		~~~~~~~$B$N%\!<%k$r(B$(J\(Blceil x/3 (J\(Brceil$$B$K%j%i%Y%k$9$k(B (J\\(B
+		(J\(B, 7: (J\(Btextbf{end for} (J\\(B
+		(J\(B, 8: (J\(Btextbf{if} $(J\(Blceil n/3 (J\(Brceil$$BHV$N%P%1%D$K(B$y_2$B$+(By_3(y(J\(Bin[n])$$B$,$"$k(B (J\(Btextbf{then}(J\\(B
+		(J\(B, 9: ~~$B$=$N%\!<%k$r(B$(J\(Blceil n/3 (J\(Brceil$$B$K%j%i%Y%k$9$k(B (J\\(B
+		10:  $B:G=i$N(B$(J\(Blceil n/3 (J\(Brceil$$B8D$N%P%1%D$K$D$$$F(J\\(B
+		~~~~~$Recursive((J\(Blceil n/3 (J\(Brceil)$$B$rE,MQ$7%\!<%k$rJB$SBX$($k(J\\(B
+		11: $B%i%Y%k$r85$KLa$9(B (J\\(B
+		12: (J\(Btextbf{for} $x=n$ to 2 (J\\(B
+		13: ~~$x_1$$B$r(B$x$$BHV$N%P%1%D$K(Bmove(J\\(B
+		14: (J\(Btextbf{end for} (J\\(B (J\(Bhline 
+	(J\(Bend{tabular} 
+	(J\(Blabel{saiki}
+(J\(Bend{table}
 
 
 
-\section{‚Ü‚Æ‚ß‚Æ¡Œã‚Ì‰Û‘è}
-¡‰ñ‚ÍCÅ’Z—U“±–Ø‘JˆÚ–â‘è‚ª—U“±–Ø‚ÌƒTƒCƒY‚Æ‘JˆÚ—ñ‚Ì’·‚³‚ğƒpƒ‰ƒ[ƒ^‚Æ‚µ‚½‚Æ‚«CW[1]¢“ï‚Å‚ ‚é‚±‚Æ‚ğ¦‚µ‚½D
-¡Œã‚Ì‰Û‘è‚Æ‚µ‚Ä‚ÍC‘JˆÚ—ñ‚Ì’·‚³‚Æ“ü—ÍƒOƒ‰ƒt‚ÌÅ‘åŸ”‚ğƒpƒ‰ƒ[ƒ^‚Æ‚µ‚½‚Æ‚«‚ÌŒvZ•¡G«‚Ì‰ğÍ‚ğs‚¢‚½‚¢D
+(J\(Bsection{$B$^$H$a$H:#8e$N2]Bj(B}
+$B:#2s$O!$:GC;M6F3LZA+0\LdBj$,M6F3LZ$N%5%$%:$HA+0\Ns$ND9$5$r%Q%i%a!<%?$H$7$?$H$-!$(BW[1]$B:$Fq$G$"$k$3$H$r<($7$?!%(B
+$B:#8e$N2]Bj$H$7$F$O!$A+0\Ns$ND9$5$HF~NO%0%i%U$N:GBg<!?t$r%Q%i%a!<%?$H$7$?$H$-$N7W;;J#;(@-$N2r@O$r9T$$$?$$!%(B
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%            Ql•¶Œ£              %
+%            $B;29MJ88%(B              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{thebibliography}{9}
-\bibitem{jiswone}
+(J\(Bbegin{thebibliography}{9}
+(J\(Bbibitem{jiswone}
 R.G. Downey and M.R. Fellows, 
 Fixed-parameter tractability and completeness II: on completeness for W[1], 
 Theoretical Computer Science 141(1-2), pp. 109--131, 1995.
 
-\bibitem{jTS}
+(J\(Bbibitem{jTS}
 R.A. Hearn and E.D. Demaine, 
 PSPACE-completeness of sliding-block puzzles and other problems through the nondeterministic constraint logic model of computation,  Theoretical Computer Science 343(1-2), pp. 72--96, 2005
 
-\bibitem{jTAR}
+(J\(Bbibitem{jTAR}
 T. Ito, E.D. Demaine, N.J.A. Harvey, C.H. Papadimitriou, M. Sideri, R. Uehara and Y. Uno, 
 On the complexity of reconfiguration problems, 
 Theoretical Computer Science 412(12-14), pp. 1054--1065, 2011
 
-\bibitem{jTJ}
-M. Kami${\rm \acute{n}}$ski, P. Medvedev and M. Milani${\rm \acute{c}}$, 
+(J\(Bbibitem{jTJ}
+M. Kami${(J\(Brm (J\(Bacute{n}}$ski, P. Medvedev and M. Milani${(J\(Brm (J\(Bacute{c}}$, 
 Complexity of independent set reconfigurability problems, 
 Theoretical Computer Science 439, pp. 9--15, 2012
 
-\bibitem{jITS}
-M. Karo${\rm \acute{n}}$ski and Z. Palka,  
+(J\(Bbibitem{jITS}
+M. Karo${(J\(Brm (J\(Bacute{n}}$ski and Z. Palka,  
 On the size of a maximal induced tree in a random graph, 
 Mathematica Slovaca 30, pp. 151--155, 1980 
 
-\bibitem{jmeta}
+(J\(Bbibitem{jmeta}
 A.E. Mouawad, N. Nishimura, V. Raman, N. Simjour and A. Suzuki, 
 On the parameterized complexity of reconfiguration problems, 
 Algorithmica 78(1) , pp. 274--297, 2017
 
-\begin{comment}
-\bibitem{jkihaba}
+(J\(Bbegin{comment}
+(J\(Bbibitem{jkihaba}
 A.E. Mouawad, N. Nishimura, V. Raman, M. Wrochna, 
 Reconfiguration over tree decompositions, 
 Proceedings of The 9th International Symposium on Parameterized and Exact Computation (IPEC 2014), 
 Lecture Notes in Computer Science 8894, pp. 246--257, 2014
-\end{comment}
+(J\(Bend{comment}
 
-\bibitem{jITRe}
+(J\(Bbibitem{jITRe}
 K. Wasa, K. Yamanaka and H. Arimura, 
 The complexity of induced tree reconfiguration problems, 
 Proceedings of The 10th International Conference on Language and Automata Theory and Applications (LATA 2016), Lecture Notes in Computer Science 9618, pp. 330--342, 2016
 
-\end{thebibliography}
+(J\(Bend{thebibliography}
 
-\end{document}
+(J\(Bend{document}
