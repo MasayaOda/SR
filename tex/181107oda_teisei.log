@@ -1,9 +1,9 @@
-This is e-pTeX, Version 3.14159265-p3.7.1-161114-2.6 (sjis) (TeX Live 2017/W32TeX) (preloaded format=platex 2018.4.5)  3 NOV 2018 14:11
+This is e-pTeX, Version 3.14159265-p3.7.1-161114-2.6 (sjis) (TeX Live 2017/W32TeX) (preloaded format=platex 2018.4.5)  5 NOV 2018 18:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./korekarayou.tex
-(./korekarayou.tex
+**./181107oda_teisei.tex
+(./181107oda_teisei.tex
 pLaTeX2e <2017/10/28>+4 (based on LaTeX2e <2017-04-15>)
 Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 (c:/texlive/2017/texmf-dist/tex/platex/base/jarticle.cls
@@ -235,125 +235,77 @@ LaTeX Info: Redefining \yen on input line 132.
 \c@defi=\count115
 \c@lemm=\count116
 
-(./korekarayou.aux)
-\openout1 = `korekarayou.aux'.
+(./181107oda_teisei.aux)
+\openout1 = `181107oda_teisei.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 98.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 89.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 98.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 89.
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <14.4> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 103.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 94.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <14.4> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 103.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 94.
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 104.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 95.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 104.
-LaTeX Font Info:    Try loading font information for U+lasy on input line 104.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 95.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 95.
  (c:/texlive/2017/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 104.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 95.
 
 (c:/texlive/2017/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 104.
+LaTeX Font Info:    Try loading font information for U+msa on input line 95.
 
 (c:/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 104.
+LaTeX Font Info:    Try loading font information for U+msb on input line 95.
 
 (c:/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-File: oneman.pdf Graphic file (type pdf)
-<oneman.pdf>
-
-
-LaTeX Warning: Reference `yudougi' on page 1 undefined on input line 145.
-
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 153.
-
-(c:/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 153.
+File: oneman2.pdf Graphic file (type pdf)
+<oneman2.pdf>
+File: twoman.pdf Graphic file (type pdf)
+<twoman.pdf>
+File: gameend.pdf Graphic file (type pdf)
+<gameend.pdf>
  [1
 
 
 ]
-File: senniretu.pdf Graphic file (type pdf)
-<senniretu.pdf>
-
-Overfull \hbox (16.73535pt too wide) in paragraph at lines 169--170
- [] 
- []
-
-
-LaTeX Font Warning: Font shape `JT1/mc/m/it' undefined
-(Font)              using `JT1/mc/m/n' instead on input line 189.
-
-
-LaTeX Font Warning: Font shape `JY1/mc/m/it' undefined
-(Font)              using `JY1/mc/m/n' instead on input line 189.
-
-File: w1ins.pdf Graphic file (type pdf)
-<w1ins.pdf>
-[2]
-Overfull \hbox (13.20143pt too wide) in paragraph at lines 252--273
-[][][][]
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 289--291
-[]\OT1/cmr/m/n/10 R.A. Hearn and E.D. De-maine, PSPACE-
- []
-
-[3]
-Underfull \hbox (badness 1303) in paragraph at lines 308--311
-[]\OT1/cmr/m/n/10 A.E. Mouawad, N. Nishimura, V. Ra-man, N.
- []
-
-Excluding 'comment' comment. [4
-
-] (./korekarayou.aux)
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-
-LaTeX Warning: There were undefined references.
-
- ) 
+File: monte.pdf Graphic file (type pdf)
+<monte.pdf>
+ [2]
+(./181107oda_teisei.aux) ) 
 Here is how much of TeX's memory you used:
- 2628 strings out of 493640
- 31904 string characters out of 6151720
- 105754 words of memory out of 5000000
- 6170 multiletter control sequences out of 15000+600000
- 14433 words of font info for 62 fonts, out of 8000000 for 9000
+ 2586 strings out of 493640
+ 31518 string characters out of 6151720
+ 99754 words of memory out of 5000000
+ 6133 multiletter control sequences out of 15000+600000
+ 13325 words of font info for 58 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
- 27i,10n,26p,512b,321s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 27i,5n,26p,265b,319s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on korekarayou.dvi (4 pages, 26180 bytes).
+Output written on 181107oda_teisei.dvi (2 pages, 10924 bytes).
