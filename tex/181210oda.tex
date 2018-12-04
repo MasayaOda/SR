@@ -1,0 +1,244 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%      研修A用サンプルファイル     %
+%            LATEX2e用             %
+%      2001年4月8日 by 三浦        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4j,twocolumn]{jarticle}
+\usepackage{latexsym}
+%\usepackage[dvips]{graphicx,color}
+\usepackage[dvipdfmx]{graphicx,color}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{cases}
+\usepackage{ascmac}
+\usepackage{fancybox}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{comment}
+\usepackage{okumacro}
+%\usepackage{multicol}
+%\linespread{2.0}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%        原稿サイズ等指定          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\topmargin=-2cm
+\leftmargin=0true cm
+\oddsidemargin=-1cm 
+\evensidemargin=-1cm
+\textwidth=17.5cm
+\textheight=26cm
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%        自前の命令等設定          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheorem{theorem}{定理}
+\newtheorem{jexa}{例}
+\newtheorem{jcor}{系}
+\newtheorem{direc}{方針}
+\newcommand{\jpro}{\noindent {\bf 証明}\ \ }
+\newtheorem{defi}{定義}
+\newtheorem{lemm}{補題}
+
+\newcommand{\bhline}[1]{\noalign{\hrule height #1}}
+\newcommand{\cut}[1]{{\rm cut\_from\_hit}(#1)}
+
+\newcommand{\jda}[1]{A_{#1}}
+\newcommand{\jitr}{{\rm ITR{\footnotesize{ECONF}}}}
+\newcommand{\jdu}{u}
+\newcommand{\jdv}{v}
+\newcommand{\jdvv}[1] {v_#1}
+\newcommand{\jtree}[1]{T_#1}
+\newcommand{\jind}[1]{I_#1}
+\newcommand{\jpu}{u}
+\newcommand{\jpv}{v}
+
+\newcommand{\jsiki}{t}
+
+
+\renewcommand{\proofname}{証明}
+
+ \makeatletter
+    \renewcommand{\thefigure}{%
+    \arabic{figure}}
+  \makeatother
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%            タイトル              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\twocolumn[
+2018 年11月7
+日~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~院ゼミ発表用資料\\
+\begin{center}
+	\begin{huge}
+		モンテカルロ法に基づくFlood-ItのAIに関する研究
+	\end{huge}
+\end{center}
+
+\begin{center}
+	\begin{large}
+		\textbf{周・伊藤研究室　学部4年　小田将也}
+	\end{large}
+\end{center}
+]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%              本文                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{はじめに}
+Flood fillingゲームとは，色の操作を繰り返すことで，全体を一つの色に変えるゲームの総称である．本研究では，Flood fillingゲームの中でも特に研究のされている，Flood-Itについて扱う．\textbf{Flood-It}では，$n \times m$の色分けされたグリッドが与えられる．
+ここで，グリッドの大きさ$n \times m$，グリッドのそれぞれのマスの色を含めたグリッドの状態を\textbf{盤面}と呼ぶ．
+盤面の一番左上にあるマスを\textbf{基準(ピボット)}と呼び，ピボットから上下左右に現在の色のみを辿って辿り着くことができるマスの集合を，
+\textbf{自分の領地}と呼ぶ．1回の\textbf{操作}では，ピボットを現在の色から別の色へ変更する．ピボットの色の変更と同時に自分の領地の全てのマスの色が同じ色に変わる．
+図\ref{oneman}に操作の例を示す．操作前図\ref{oneman}(a)は操作前の盤面であり，灰色で示した部分が自分の領地である．
+この盤面にピボットの色を1から2へ変える操作を適用すると，
+図\ref{oneman}(b)の盤面が得られる．ここで，色の変更によって，自分の領地が増えたことに注意しよう．このように操作を繰り返すことで，グリッドの全てのマスを自分の領地にすれば終了である．
+このFlood-Itに対し，色分けされたグリッドが与えられた際に，終了までに必要な最小の操作数を求める問題について以下のような研究がされてきた．
+Arthurらが示した結果によると，グリッドの大きさが$n \times n$である場合には，使用される色の数が3色の場合ですらNP困難である\cite{gridnn}．
+また，2012年，MeeksとScottは，$3 \times n$のグリッドにおいて，使用される色の数が4色のときですらNP困難であることを示した\cite{grid3n}．
+一方で，2012年，Cliffordらは，$2 \times n$のグリッドであれば，使用される色の数が何色であったとしても多項式時間で解けるということを示した\cite{grid2n}．
+
+
+従来研究されてきたFlood-Itは一人用のゲームであったが，今回は，Flood-Itを二人用対戦ゲームに拡張したものを考える．
+二人用Flood-Itは，同じく$n \times m$の色分けされたグリッド上で行う．
+一番左上のマスを先手のピボット，一番右下のマスを後手のピボットとし，それぞれのピボットから上下左右に，同じ色のマスのみを辿って辿り着くことができるマスの集合を，それぞれ先手の領地，後手の領地と定義する(図\ref{twoman})．
+プレイヤーが交互にピボットの色を変える操作を繰り返し，グリッドの全てのマスが，先手の領地もしくは後手の領地になった場合にゲーム終了となる(図\ref{gameend})．
+ゲーム終了時に自分の領地が広い方のプレイヤーの勝利，というルールである．
+
+
+本研究では，二人用Flood-Itの，強いAIを作成することを目標に，モンテカルロ法に基づく対戦用AIを作成する．
+\\
+\\
+\\
+
+
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[width=60mm,clip]{oneman2.pdf}
+		\caption{1回の操作の例．(a)は操作前の盤面，(b)は操作後の盤面である．マスの中の数字はそのマスに割り当てられている色を表し，灰色のマスは自分の領地を表している．}
+		\label{oneman}
+	\end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[width=50mm,clip]{twoman.pdf}
+		\caption{二人用Flood-Itの盤面の例．実線内部が先手の領地であり，点線内部が後手の領地である．}
+		\label{twoman}
+	\end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[width=50mm,clip]{gameend.pdf}
+		\caption{ゲーム終了時の盤面の例．この場合は先手の領地の方が後手の領地よりも広いので先手の勝利である．}
+		\label{gameend}
+	\end{center}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       基本的な準備・定義        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%P
+\section{定義・準備}
+\subsection{作成すべきAIについて}
+作成すべき二人用Flood-ItのAIについて，以下のように定義する．
+\begin{itemize}
+	\item[入力:]
+	グリッドの行数$n$\\
+	グリッドの列数$m$\\
+	色集合$C=\{1,2,・・・,k\}$\\
+	グリッドの各マスへの色の割当$f:[1,n]\times [1,m]\to C$\\
+	$f(n^\prime,m^\prime) \in C$
+	\item[出力:]次の操作での変更先の色$i \in C$
+\end{itemize}
+
+\subsection{モンテカルロ法を用いたAIのアルゴリズム}
+\textbf{モンテカルロ法}とは，シミュレーションや数値計算を乱数を使用して行う手法の総称である．
+Flood-Itにおけるモンテカルロ法を用いたAIでは，受け取った盤面の情報に対して，プレイヤーの次の各色の選択肢からランダムな操作をし続けてゲームを終了させる\textbf{プレイアウト}という動作を繰り返す．
+プレイアウト後の勝敗数を記憶することで次の各色の選択肢毎の勝率を求め，勝率の最も高い色を出力する(図\ref{monte})．
+
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[width=80mm,clip]{monte.pdf}
+		\caption{各選択肢について4回ずつプレイアウトを行った例．この場合は，勝率の最も高い3を出力する．}
+		\label{monte}
+	\end{center}
+\end{figure}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     本論                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{今後の方針}
+まずはモンテカルロ法を用いたAIを作成し，既存のAIとの勝率を確認する．
+その後，モンテカルロ法の改善アルゴリズムをAIに適用し勝率が上がるか確認する．
+
+
+また，同じ盤面に対する既存のAIの操作や人間の操作とモンテカルロの操作を比較し，モンテカルロの長所および短所を探る．
+その長所や短所を基にさらなるアルゴリズムの改善をし，勝率の向上を試みる．
+
+
+その他に，モンテカルロ法のアルゴリズムにおけるゲーム終了時に評価する値に勝敗だけでなく領地の広さも加えることで勝率が改善されるか確かめる．
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{table}[h]
+%	\caption{モンテカルロ法のアルゴリズム}
+%	\begin{tabular}{l}
+%		\bhline{1.3pt}
+%	{\bf アルゴリズム 2}：$Recursive(n)$, $n$:\textbf{整数}  \\ \hline
+%		\, 1: \textbf{for} $x=n$ to $\lceil n/2 \rceil+1$ \\
+%		\, 2: ~~$x_3$を$x$番のバケツにmove\\
+%		\, 3: ~~$x_2$を$x$番のバケツにmove\\
+%		\, 4: \textbf{end for} \\
+%		\, 5: \textbf{for} $x=1$ to $n$ \\
+%		\, 6: ~~1番のバケツから$\lceil n/3 \rceil$番のバケツにある$x_1$\\
+%		~~~~~~~のボールを$\lceil x/3 \rceil$にリラベルする \\
+%		\, 7: \textbf{end for} \\
+%		\, 8: \textbf{if} $\lceil n/3 \rceil$番のバケツに$y_2かy_3(y\in[n])$がある \textbf{then}\\
+%		\, 9: ~~そのボールを$\lceil n/3 \rceil$にリラベルする \\
+%		10:  最初の$\lceil n/3 \rceil$個のバケツについて\\
+%		~~~~~$Recursive(\lceil n/3 \rceil)$を適用しボールを並び替える\\
+%		11: ラベルを元に戻す \\
+%		12: \textbf{for} $x=n$ to 2 \\
+%		13: ~~$x_1$を$x$番のバケツにmove\\
+%		14: \textbf{end for} \\ \hline 
+%	\end{tabular} 
+%	\label{saiki}
+%\end{table}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%            参考文献              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thebibliography}{9}
+\bibitem{gridnn}
+D. Arthur, R. Clifford, M. Jalsenius, A. Montanaro and B. Sash, 
+The complexity of flood filling games, 
+Proceedings of Fun with Algorithms 2010, Lecture Notes in Computer Science 6099, pp. 307--318, 2010.
+
+\bibitem{grid2n}
+R. Clifford, M. Jalsenius, A. Montanaro, B. Sach,
+The complexity of flood filling games,
+Theory of Computing Systems 50(1), pp. 72--92, 2012.
+
+\bibitem{grid3n}
+K. Meeks, A. Scott,  
+The complexity of flood filling games on graphs, 
+Discrete Applied Mathematics 160(7--8), pp. 959--969, 2012.
+
+
+
+
+
+
+\end{thebibliography}
+
+\end{document}
